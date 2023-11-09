@@ -1,0 +1,190 @@
+.image-container {
+  width: 100%;
+  /* Adjust the width and height according to your layout */
+  height: 400px;
+  position: relative;
+  /* Necessary for absolute positioning of the image */
+}
+
+.image-container img {
+  object-fit: cover;
+  /* Your previous image styling */
+  width: 100%;
+  height: 100%;
+      /* Place the image below the text */
+}
+.image-container h2 {
+  
+      position: absolute;
+      top: 20%;
+      /* Adjust this to vertically center the text */
+      left: 50%;
+      /* Adjust this to horizontally center the text */
+      /* Center the text precisely */
+        transform: translate(-50%, -50%);
+      color: #320938;
+      /* Set the text color to be visible on the gradient */
+      font-size: 24px;
+      /* Adjust the font size as needed */
+      text-align: center;
+      /* Center the text horizontally */
+    
+}
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient( #688A7E,  rgba(248, 250, 248, 0.6) );    /* Create a custom gradient */  /* Your gradient colors */
+  overflow: hidden;
+  /* Adjust the opacity to your preference */
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.newsletter-form h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+
+}
+.newsletter-form form {
+  display: flex;
+}
+.newsletter-form form input {
+  width: 200px;
+  padding: 10px 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.newsletter-form form button {
+  width: 150px;
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  box-sizing: border-box;
+  height: 37px;
+}
+
+/*---featuredjobs section----*/
+
+ .job-listings {
+   margin-bottom: 50px;
+ }
+    .job-listings h1{
+      color: #740D7D;
+      margin-left:10px ;
+    }
+
+        .categories {
+          
+          background-color: #FDF9F9;
+          margin: auto;
+          padding: 10px 5px;
+          width: 1150px;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          /* Optional: Add a background color for better visibility */
+        }
+    
+        .dropdown {
+          position: relative;
+          display: inline-block;
+          margin-right: 20px;
+          /* Adjust spacing between dropdowns */
+        }
+      .dropdown-header {
+        cursor: pointer;
+        padding: 10px;
+        background-color: #443232;
+        color: #fff;
+        border-radius: 4px;
+      }
+
+         .dropdown-content {
+           display: none;
+           position: absolute;
+           width: 100px;
+           background-color: #BBB2B2;
+           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+           border-radius: 4px;
+           padding: 10px;
+           z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+         }
+
+          .dropdown-content span {
+            display: block;
+            padding: 8px;
+            cursor: pointer;
+            text-decoration: 'none';
+            transition: color 0.3s ease-in-out;
+          }
+                .dropdown-content span a {
+                  cursor: pointer;
+                  text-decoration: none;
+                  /* Use either no quotes or double quotes for property values */
+                }
+        .dropdown:hover .dropdown-content {
+          display: block;
+            opacity: 1;
+        }
+        .dropdown-content span :hover  {
+          color: #3498db;
+        }
+               
+          
+        /* Optional: Style for better visibility on hover */
+        
+
+.featuredJobs-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap:15px;
+  justify-content: center;
+}
+
+.job-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #FEF7F7;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+  .job-card:hover {
+    transform: scale(1.05);
+  }
+
+    h2 {
+      color: #8C4848;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+  
+    p {
+      margin: 8px 0;
+    }

@@ -1,0 +1,108 @@
+{
+  "featuredJobs": [
+    {
+      "id": 1,
+      "jobTitle": "Software Engineer",
+      "companyName": "TechCo",
+      "location": "San Francisco, CA",
+      "category": "Information Technology",
+      "jobType": "Full-Time",
+      "description": "TechCo is seeking a talented Software Engineer to join our innovative team. You'll work on cutting-edge projects and help shape the future of technology.",
+      "qualifications": "Bachelor's degree in Computer Science or related field, 3+ years of software development experience, proficiency in Java and Python.",
+      "skills": ["Java", "Python", "Web Development", "Problem Solving"],
+      "salary": "$100,000 - $120,000 per year",
+      "applicationDeadline": "2023-12-15"
+    },
+    {
+      "id": 2,
+      "jobTitle": "Digital Marketing Specialist",
+      "companyName": "MarketingPro",
+      "location": "New York, NY",
+      "category": "Marketing",
+      "jobType": "Remote",
+      "description": "Join MarketingPro's team and help drive digital marketing strategies for our clients. This role offers a flexible remote work arrangement.",
+      "qualifications": "Bachelor's degree in Marketing or related field, 2+ years of digital marketing experience, SEO and social media expertise.",
+      "skills": ["Digital Marketing", "SEO", "Social Media", "Content Marketing"],
+      "salary": "$60,000 - $80,000 per year",
+      "applicationDeadline": "2023-12-20"
+    },
+    {
+      "id": 3,
+      "jobTitle": "Registered Nurse",
+      "companyName": "HealthCarePlus",
+      "location": "Los Angeles, CA",
+      "category": "Healthcare",
+      "jobType": "Part-Time",
+      "description": "HealthCarePlus is looking for dedicated Registered Nurses to provide high-quality patient care. Part-time positions available.",
+      "qualifications": "RN license, CPR certification, strong communication skills, compassion for patient care.",
+      "skills": ["Nursing", "Patient Care", "CPR", "Healthcare"],
+      "salary": "$30 - $35 per hour",
+      "applicationDeadline": "2023-12-18"
+    },
+    {
+      "id": 4,
+      "jobTitle": "Data Analyst",
+      "companyName": "DataInsights",
+      "location": "Seattle, WA",
+      "category": "Analytics",
+      "jobType": "Full-Time",
+      "description": "DataInsights is hiring a skilled Data Analyst to analyze and interpret complex data sets. Join us in unlocking valuable insights for our clients.",
+      "qualifications": "Bachelor's degree in Statistics or related field, experience with data analysis tools, strong analytical and problem-solving skills.",
+      "skills": ["Data Analysis", "Statistics", "SQL", "Data Visualization"],
+      "salary": "$80,000 - $100,000 per year",
+      "applicationDeadline": "2023-12-22"
+    },
+    {
+      "id": 5,
+      "jobTitle": "UX/UI Designer",
+      "companyName": "DesignStudio",
+      "location": "Austin, TX",
+      "category": "Design",
+      "jobType": "Full-Time",
+      "description": "DesignStudio is seeking a creative UX/UI Designer to join our collaborative team. Bring your design expertise to create user-centric experiences.",
+      "qualifications": "Bachelor's degree in Design or related field, proficiency in design tools, strong portfolio showcasing UX/UI projects.",
+      "skills": ["UX Design", "UI Design", "Prototyping", "User Research"],
+      "salary": "$70,000 - $90,000 per year",
+      "applicationDeadline": "2023-12-25"
+    },
+    {
+      "id": 6,
+      "jobTitle": "Financial Analyst",
+      "companyName": "FinanceCorp",
+      "location": "Chicago, IL",
+      "category": "Finance",
+      "jobType": "Full-Time",
+      "description": "FinanceCorp is hiring a Financial Analyst to provide financial guidance and support. Join our team and contribute to financial success.",
+      "qualifications": "Bachelor's degree in Finance or related field, analytical skills, proficiency in financial modeling and forecasting.",
+      "skills": ["Financial Analysis", "Excel", "Budgeting", "Forecasting"],
+      "salary": "$75,000 - $95,000 per year",
+      "applicationDeadline": "2023-12-28"
+    },
+    {
+      "id": 7,
+      "jobTitle": "Sales Representative",
+      "companyName": "SalesPro",
+      "location": "Miami, FL",
+      "category": "Sales",
+      "jobType": "Commission-Based",
+      "description": "SalesPro is expanding its sales team. Join us as a Sales Representative and play a key role in driving revenue growth.",
+      "qualifications": "High school diploma or equivalent, proven sales experience, excellent communication and negotiation skills.",
+      "skills": ["Sales", "Negotiation", "Communication", "Customer Relationship"],
+      "salary": "Commission-Based",
+      "applicationDeadline": "2023-12-30"
+    },
+    {
+      "id": 8,
+      "jobTitle": "Human Resources Manager",
+      "companyName": "HR Solutions",
+      "location": "Denver, CO",
+      "category": "Human Resources",
+      "jobType": "Full-Time",
+      "description": "HR Solutions is hiring an experienced Human Resources Manager to lead HR initiatives and foster a positive work environment.",
+      "qualifications": "Bachelor's degree in Human Resources or related field, HR certification, 5+ years of HR management experience.",
+      "skills": ["Human Resources", "Employee Relations", "Recruitment", "HR Policies"],
+      "salary": "$90,000 - $110,000 per year",
+      "applicationDeadline": "2024-01-02"
+    }
+     ]
+}
