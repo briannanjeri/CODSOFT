@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="App">
-      {!isEmployerRoute ? <Navbar/> : <Header/>}
+      {!isEmployerRoute && <Navbar/> }
        <Routes>
         <Route path='/' element={<Home/>}></Route>
          <Route path="/employer*" element={<Index/>} ></Route>
