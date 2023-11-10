@@ -10,7 +10,9 @@ export const NavDropDown = ({title, options}) => {
         <div className="dropdown-content">
           {options.map((option, index) => (
             <span key={index}>
-                <Link to='#' style={{  textDecoration: 'none' }} >{option}</Link>
+              {option=='Employer' ?
+              <Link to='/employer' style={{  textDecoration: 'none' }} >{option}</Link>
+      :         <Link to='/#' style={{  textDecoration: 'none' }} >{option}</Link>}
                 </span>
           ))}
         </div>

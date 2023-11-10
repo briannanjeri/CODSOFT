@@ -1,0 +1,56 @@
+ 
+  .hero-container {
+    background-color: #F5F5F5;
+        margin-bottom: 30px;
+  }
+  .statistics-title  {
+     color: #740D7D;
+  }
+ .hero-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5F5;
+ }
+
+  .welcome-message {
+    text-align: center;
+  }
+
+  .statistics-data{
+    background-color: #D9D9D9;
+    margin-bottom: 20px;
+  }
+
+  .statistics-details {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+  }
+  .statistics-details > div{
+    border-radius: 50%;
+        overflow: hidden;
+        padding-top: 50px;
+        margin-left:10px ;
+        width: 200px;
+        /* Adjust the width and height as needed */
+        height: 150px;
+        text-align: center;
+        background-color: #f0f0f0;
+
+  }
+
+  .statistics-data h2 {
+      color: #740D7D;
+      margin-left: 20px;
+  }
+
+  .statistics-details h2 {
+    color: #000000;
+  }
+
+  .recentjobs-title{
+    background-color: #F5F5F5;
+    padding: 10px;
+    }

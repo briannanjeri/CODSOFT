@@ -4,8 +4,8 @@ import { NavDropDown } from "../../drop/navDropdown";
 import "./navbar.css";
 import '../home/style.css'
 export const Navbar = () => {
-   const loginOptions = ['Employer', 'Jobseeker'];
-  const registerOptions = ['Employer', 'Jobseeker'];
+  //  const loginOptions = ['Employer', 'Jobseeker', {page:'login'}];
+  const registerOptions = ['Employer', 'Jobseeker' ];
   const pagesOptions = ['FAQs', 'Privacy Policy'];
   return (
     <div>
@@ -23,7 +23,7 @@ export const Navbar = () => {
                <NavDropDown title="Pages" options={pagesOptions} />
              <li>About us</li>
             <li>contact us</li>
-            <NavDropDown title="Login" options={loginOptions} />
+            {/* <NavDropDown title="Login" options={loginOptions} /> */}
            <NavDropDown title="Register" options={registerOptions} />
           </ul>
         </div>

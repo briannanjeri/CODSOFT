@@ -1,0 +1,161 @@
+.employer-form {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-control-inputs {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+
+.form-control-inputs label {
+  font-size: 16px;
+  font-weight: 400px;
+  padding: 3px 0;
+  color: white;
+}
+
+.form-control-inputs input {
+  width: 400px;
+  padding: 8px 5px;
+  border: 1px solid black;
+  border-radius: 5px 10px;
+}
+
+.form-control-inputs .error {
+  margin: 5px 0;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 0 10px;
+  color: red;
+}
+
+.register-button {
+  width: 300px;
+  padding: 10px 15px;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: 1s ease-in-out;
+  position: relative;
+  background-color: #007bff;
+  color: #000000;
+}
+
+.register-button:hover::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 1px solid black;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.register-button:hover {
+  color: white;
+  background-color: #2436db;
+  z-index: 1;
+}
+
+ .switch-button {
+  background-color: #F5F5F5;
+  margin-top: 5px;
+  border: none;
+  color: #000000;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+ .switch-button:hover {
+  background-color: darkslategray;
+}
+
+
+/*---login From---*/
+
+.auth-container {
+  background-color: #D9D9D9;
+  width: 100%;
+  height: 100vh;
+}
+
+.header {
+  background-color: #D9D9D9;
+  padding: 20px 0;
+}
+
+.secondary-nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+}
+
+.secondary-nav .header-title a {
+  color: #000000;
+  font-size: 24px;
+}
+.header-login button {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #CCC5C5;
+  color: white;
+  width: 60px;
+  text-align: center;
+}
+
+.secondary-nav .header-login a {
+  color: white;
+}
+
+.secondary-nav li a {
+  text-decoration: none;
+}
+
+.input-container h2 {
+  text-align: center;
+  margin-right: 345px;
+}
+
+.login-button {
+  width: 300px;
+  padding: 10px 15px;
+  border: 1px solid black;
+  border-radius: 6px;
+  transition: 1s ease-in-out;
+  position: relative;
+  background-color: #007bff;
+  color: #000000;
+}
+
+.login-button:hover::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 1px solid black;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.login-button:hover {
+  color: white;
+  background-color: #2436db;
+  z-index: 1;
+}
+
+/*# sourceMappingURL=auth.css.map */

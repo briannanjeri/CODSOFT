@@ -3,7 +3,7 @@ import HeroArea from './hero-area'
 import { SearchInput } from '../searchInput/searchInput'
 import { FeaturedJobs } from './featuredJobs'
 
-const Index = () => {
+export const Home = () => {
   return (
     <div>
       <HeroArea/>
@@ -13,4 +13,3 @@ const Index = () => {
   )
 }
 
-export default Index
