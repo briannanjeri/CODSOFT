@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDataContext } from './dataContext';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import './style.css'
@@ -32,10 +33,57 @@ const EmployerJobPostingForm = () => {
     applicationDeadline: '',
   };
 
-  const handleSubmit = (values) => {
-    // Add your form submission logic here
-    console.log('Form submitted with values:', values);
+  const handleSubmit = async (values,{  resetForm }) => {
+    try {
+      // Your API endpoint for creating a job posting
+      const apiUrl = "/api/jobPostings/createJobPosting"; // Update the endpoint
+
+      // Map values to match your API request structure
+      const requestBody = {
+        jobTitle: values.jobTitle,
+        companyName: values.companyName,
+        location: values.location,
+        category: values.category,
+        jobType: values.jobType,
+        jobDescription: values.jobDescription,
+        qualifications: values.qualifications,
+        skills: values.skills,
+        requirements: values.requirements,
+        salary: values.salary,
+        applicationDeadline: values.applicationDeadline,
+      };
+
+      // Make the API request
+      const response = await fetch('http://localhost:3001/jobPosting', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      // Check if the request was successful (status code 2xx)
+      if (response.ok) {
+            resetForm();
+
+        console.log("Job posting created successfully");
+        const data=await response.json()
+        console.log('jobpostingdata', data)
+
+        // You can redirect the user or perform other actions here
+      } else {
+        // Handle errors or display error messages to the user
+        console.error("Failed to create job posting");
+        const data=await response.json()
+        throw new Error(data.error)
+      }
+    } catch (error) {
+      console.error("Error submitting job posting:", error);
+    } 
   };
+
+  const { categories, jobTypes, locations } = useDataContext();
+console.log('categories', categories)
 
   return (
     <div className="job-posting-form-container">
@@ -62,9 +110,9 @@ const EmployerJobPostingForm = () => {
 
                <Field as="select" name="location">
               <option value="">Select Location</option>
-              <option value="remote">Remote</option>
-              <option value="onsite">Onsite</option>
-              <option value="hybrid">Hybrid</option>
+              {locations && locations.map((location) => (
+            <option key={location._id} value={location.name}>{location.name}</option>
+        ))}
             </Field>
             {errors.location && touched.location && (
               <div className="error">{errors.location}</div>
@@ -73,9 +121,9 @@ const EmployerJobPostingForm = () => {
             <label htmlFor="category">Category<span className="required">*</span></label>
             <Field as="select" name="category">
               <option value="">Select Category</option>
-              <option value="IT">IT</option>
-              <option value="Healthcare">Healthcare</option>
-              <option value="Marketing">Marketing</option>
+              {categories && categories.map((category) => (
+          <option key={category._id} value={category.name}>{category.name}</option>
+        ))}
               {/* Add more categories as needed */}
             </Field>
              {errors.category && touched.category && (
@@ -84,10 +132,9 @@ const EmployerJobPostingForm = () => {
             <label htmlFor="jobType">Job Type<span className="required">*</span></label>
             <Field as="select" name="jobType">
               <option value="">Select Job Type</option>
-              <option value="full-time">Full-Time</option>
-              <option value="part-time">Part-Time</option>
-              <option value="contract">Contract</option>
-              <option value="temporary">Temporary</option>
+              {jobTypes && jobTypes.map((jobType) => (
+          <option key={jobType._id} value={jobType.name}>{jobType.name}</option>
+        ))}
               {/* Add more job types as needed */}
             </Field>
             {errors.jobType && touched.jobType && (

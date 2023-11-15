@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-
+import { DataProvider } from './components/employer/job-post/dataContext';
+import { JobPostingsProvider } from './components/employer/job-post/jobPostingContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    <JobPostingsProvider>
+    <DataProvider>
     <App />
-    
+    </DataProvider>
+    </JobPostingsProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

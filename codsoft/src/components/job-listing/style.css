@@ -1,0 +1,20 @@
+.job-listing-container {
+    margin: 5px 25px
+    /* width: 90%;
+    margin: auto; */
+}
+.job-listing-hero-area {
+    background: #FDF9F9;
+    text-align: center;
+    padding: 20px;
+        margin: 25px;
+}
+
+.job-listing-title {
+    text-align: center;
+    background-color: #FDF9F9;
+    width: 600px;
+    margin: auto;
+    margin-top:25px;
+    
+}
