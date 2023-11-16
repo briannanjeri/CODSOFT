@@ -12,7 +12,7 @@ export const NavDropDown = ({title, options}) => {
             <span key={index}>
               {option=='Employer' ?
               <Link to='/employer' style={{  textDecoration: 'none' }} >{option}</Link>
-      :         <Link to='/#' style={{  textDecoration: 'none' }} >{option}</Link>}
+      :         <Link to='/jobSeeker' style={{  textDecoration: 'none' }} >{option}</Link>}
                 </span>
           ))}
         </div>

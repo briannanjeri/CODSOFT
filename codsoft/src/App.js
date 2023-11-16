@@ -8,7 +8,8 @@ import Dashboard from './components/employer/dashboard/Dashboard';
 import { Header } from './components/employer/navbar/header';
 import { JobListing } from './components/job-listing/jobListing';
 import JobDetails from './components/job-details/job-details';
-
+import { JobApplicationForm } from './components/applicationForm/jobApplicationForm';
+import { CandidateIndex } from './components/jobSeekerAuthForm';
 function App() {
     const location = useLocation();
   const isEmployerRoute = location.pathname.includes('/employer');
@@ -21,8 +22,11 @@ function App() {
          <Route path="/employer*" element={<Index/>} ></Route>
         <Route path="/employer/jobPostings" element={<EmployerJobPostingForm/>} ></Route>
         <Route path="/employer/dashboard" element={<Dashboard/>} ></Route>
-        <Route path='/job-listing' element={<JobListing/>} ></Route>
-        <Route path="/job/:id" element={<JobDetails/>} />
+        <Route path='/jobListing' element={<JobListing/>} ></Route>
+        <Route path="/job/:_id" element={<JobDetails/>} />
+        <Route path="/jobApplication" element={<JobApplicationForm/>} />
+        <Route path="/jobSeeker" element={<CandidateIndex/>} ></Route>
+
       </Routes>
     </div>
   );

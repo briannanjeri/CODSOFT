@@ -188,3 +188,8 @@
     p {
       margin: 8px 0;
     }
+
+.job-container a{
+  text-decoration: none;
+  color: #000000;
+  }
