@@ -1,58 +1,50 @@
-import React from "react";
-import {
-  validateEmail,
-  validatePassword,
-  validateUsername,
-} from "../../utils/validateInputs";
+import { validateEmail, validatePassword, validateUsername } from '../../utils/validateInputs'
 
 export const RegisterCandidate = async (
-  username,
+  e,
   email,
   password,
-  setUsernameError,
+  username,
   setEmailError,
   setPasswordError,
+  setUsernameError,
   onFormSwitch
 ) => {
+  e.preventDefault()
+  console.log('function called')
   try {
-    const isUsernameValid = validateUsername(username, setUsernameError);
-    const isEmailValid = validateEmail(email, setEmailError);
-    const isPasswordValid = validatePassword(password, setPasswordError);
+    const isUsernameValid = validateUsername(username, setUsernameError)
+    const isEmailValid = validateEmail(email, setEmailError)
+    const isPasswordValid = validatePassword(password, setPasswordError)
 
     // If any validation fails, stop the registration process
     if (!isUsernameValid || !isEmailValid || !isPasswordValid) {
-      return;
+      console.log('validation failed')
+      return
     }
 
-    // If all validations pass, proceed with registration
     const registrationData = {
       username,
       email,
       password,
-    };
-
+    }
+    console.log('regisraionData', registrationData)
     // Make the API request to register the job seeker
-    const response = await fetch('/api/registerJobSeeker', {
+    const response = await fetch(' http://localhost:3001/candidate/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(registrationData),
-    });
+    })
 
     if (response.ok) {
-      // Registration successful, you may handle the success scenario (e.g., show a success message, redirect to login page)
-      console.log('Job seeker registered successfully');
-    onFormSwitch("login");
-
+      console.log('Job seeker registered successfully')
+      onFormSwitch('login')
     } else {
-      // Registration failed, handle the error (e.g., show an error message)
-      console.error('Job seeker registration failed');
+      console.error('Job seeker registration failed')
     }
   } catch (error) {
-    // Handle any unexpected errors
-    console.error('Error during job seeker registration:', error);
+    console.error('Error during job seeker registration:', error)
   }
-};
-
-
+}

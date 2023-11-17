@@ -1,107 +1,102 @@
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #FDF9F9;
-    box-shadow: 0 0 10px 1px;
-    position: relative;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fdf9f9;
+  box-shadow: 0 0 10px 1px;
+  position: relative;
 }
-    
+
 .login {
-    margin-right: 20px;
-    text-decoration: none;
+  margin-right: 20px;
+  text-decoration: none;
 }
 
 .login button {
-    background-color: #f2f2f2;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .login button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid green;
-    border-radius: 50%;
-    padding: 5px 10px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid green;
+  border-radius: 50%;
+  padding: 5px 10px;
 }
 
 .letter-rm {
-    font-size: 24px;
-    font-weight: bold;
-    color: blue;
-    margin-right: -0.25rem;
-    position: relative;
+  font-size: 24px;
+  font-weight: bold;
+  color: blue;
+  margin-right: -0.25rem;
+  position: relative;
 }
 
 .letter-rm::before {
-    content: "R";
-    position: absolute;
-    left: -0.25rem;
-    color: blue;
+  content: 'R';
+  position: absolute;
+  left: -0.25rem;
+  color: blue;
 }
 
 .letter-rm::after {
-    content: "M";
-    position: absolute;
-    right: -0.25rem;
-    color: green;
+  content: 'M';
+  position: absolute;
+  right: -0.25rem;
+  color: green;
 }
 
 .logo span {
-    font-size: 12px;
-    color: linear-gradient(to right, #3fb0ac, #214559);
-    margin-top: 5px;
-    text-transform: uppercase;
+  font-size: 12px;
+  color: linear-gradient(to right, #3fb0ac, #214559);
+  margin-top: 5px;
+  text-transform: uppercase;
 }
-nav a{
-    text-decoration: none;
-    color: #000000;
-
-    
-    }
-nav li{
-    list-style: none;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-     
-  }
-.navdropdown-header{
- cursor: pointer;
+nav a {
+  text-decoration: none;
+  color: #000000;
 }
- .dropdown-content span a {
-     cursor: pointer;
-     text-decoration: none;
-     /* Use either no quotes or double quotes for property values */
- }
-  .dropdown-content span :hover {
-      color: #3498db;
-  }
-
-.logo{
-    font-size: 2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-
+nav li {
+  list-style: none;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+.navdropdown-header {
+  cursor: pointer;
+}
+.dropdown-content span a {
+  cursor: pointer;
+  text-decoration: none;
+  /* Use either no quotes or double quotes for property values */
+}
+.dropdown-content span :hover {
+  color: #3498db;
 }
 
-.nav-links ul{
-    display: flex;
-    gap: 3rem;
-    padding: 5px 10px;
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.nav-links a:hover{
-   text-decoration:underline
+.nav-links ul {
+  display: flex;
+  gap: 3rem;
+  padding: 5px 10px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
 }

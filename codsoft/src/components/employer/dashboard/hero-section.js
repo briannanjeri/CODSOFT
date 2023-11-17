@@ -1,5 +1,5 @@
-import React from "react";
-import "./style.css";
+import React from 'react'
+import './style.css'
 
 const HeroSection = () => {
   return (
@@ -15,7 +15,7 @@ const HeroSection = () => {
       </div>
       <h2 className="statistics-title">Key Statistics</h2>
     </div>
-  );
-};
+  )
+}
 
-export default HeroSection;
+export default HeroSection

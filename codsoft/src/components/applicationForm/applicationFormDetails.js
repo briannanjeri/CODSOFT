@@ -1,8 +1,8 @@
-import * as Yup from 'yup';
+import * as Yup from 'yup'
 
 export const JobValidationSchema = Yup.object().shape({
   firstName: Yup.string().required('Required'),
-  lastName: Yup.string().required('Required'),  // Validation for last name
+  lastName: Yup.string().required('Required'), // Validation for last name
   dateOfBirth: Yup.date().required('Required'),
   gender: Yup.string().required('Required'),
   nationality: Yup.string().required('Required'),
@@ -17,13 +17,13 @@ export const JobValidationSchema = Yup.object().shape({
   whyInterested: Yup.string().required('Required'),
   fitForRole: Yup.string().required('Required'),
   salaryExpectations: Yup.string().required('Required'),
-  resume: Yup.mixed().required('Resume is required'),
+  // resume: Yup.mixed().required('Resume is required'),
   coverLetter: Yup.string().required('Cover Letter is required'),
-});
+})
 
 export const initialValues = {
   firstName: '',
-  lastName: '',  // Added field
+  lastName: '',
   dateOfBirth: '',
   gender: '',
   nationality: '',
@@ -38,6 +38,6 @@ export const initialValues = {
   whyInterested: '',
   fitForRole: '',
   salaryExpectations: '',
-  resume: '',  // Added field
+  // resume: '',
   coverLetter: '',
-};
+}

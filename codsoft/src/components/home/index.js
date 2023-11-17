@@ -6,10 +6,9 @@ import { FeaturedJobs } from './featuredJobs'
 export const Home = () => {
   return (
     <div>
-      <HeroArea/>
-      <SearchInput/>
-      <FeaturedJobs/>
+      <HeroArea />
+      <SearchInput />
+      <FeaturedJobs />
     </div>
   )
 }
-
