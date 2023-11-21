@@ -1,17 +1,26 @@
-export async function applyForJob(values) {
+
+export async function applyForJob(values, file) {
   console.log('applyData', values)
   try {
     const token = localStorage.getItem('token')
 
     const apiUrl = 'http://localhost:3001/apply'
 
-    const response = await fetch(apiUrl, {
+   const formData=new FormData()
+   // Append all values to the FormData object
+    Object.entries(values).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+      formData.append('resume', file);
+
+    for (let [key, value] of formData.entries()) {
+      console.log(key, value);
+    }    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`, // Include the token in the Authorization header
       },
-      body: JSON.stringify(values),
+      body: formData,
     })
 
     if (!response.ok) {

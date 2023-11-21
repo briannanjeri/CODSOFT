@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
+import { saveTokenToLocalStorage } from '../services/saveUserToken'
 // import './style.css'
-
 export const JobSeekerLoginForm = ({ onFormSwitch }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -27,7 +27,7 @@ export const JobSeekerLoginForm = ({ onFormSwitch }) => {
 
       if (response.ok) {
         const data = await response.json()
-        localStorage.setItem('token', data.token)
+        saveTokenToLocalStorage(data.token)
         //check for pending application
         const pendingApplication = localStorage.getItem('pendingApplication')
         if (pendingApplication) {

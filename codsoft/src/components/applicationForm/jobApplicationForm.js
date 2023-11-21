@@ -1,22 +1,41 @@
 import React from 'react'
+import { useState } from 'react'
 import { Formik, Field, Form } from 'formik'
 import { initialValues } from './applicationFormDetails'
 import { JobValidationSchema } from './applicationFormDetails'
 import { applyForJob } from '../services/jobApplication'
 import './style.css'
+
 export const JobApplicationForm = () => {
+  const [file, setFile] = useState(null);
+     console.log('file', file)
+
+ const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+  };
+
+  
+    const handleSubmit = (values) => {
+      applyForJob(values, file);
+    };
   return (
-    <Formik initialValues={initialValues} validationSchema={JobValidationSchema} onSubmit={applyForJob}>
-      {({ errors, touched }) => (
-        <Form className="job-application-form">
+    <Formik initialValues={initialValues} validationSchema={JobValidationSchema} onSubmit={handleSubmit}>
+      {({ errors, touched, setFieldValue }) => (
+        <Form className="job-application-form"  encType="multipart/form-data" >
           {/* Resume */}
-          {/* <div className="form-group">
+          <div className="form-group">
             <label htmlFor="resume">Resume:</label>
-            <Field type="file" name="resume" accept=".pdf, .doc, .docx" />
+            <Field type="file" name="resume" accept=".pdf, .doc, .docx" onChange={(e) => handleFileChange(e, setFieldValue)}/>
+             {file && (
+              <div>
+                <p>Selected file: {file.name}</p>
+              </div>
+            )}
             {errors.resume && touched.resume && (
               <div className="error">{errors.resume}</div>
             )}{" "}
-          </div> */}
+          </div>
           {/* Personal Information */}
           <div className="form-group">
             <h2>Personal Information</h2>

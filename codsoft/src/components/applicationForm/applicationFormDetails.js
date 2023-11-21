@@ -38,6 +38,5 @@ export const initialValues = {
   whyInterested: '',
   fitForRole: '',
   salaryExpectations: '',
-  // resume: '',
   coverLetter: '',
 }
