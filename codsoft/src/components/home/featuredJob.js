@@ -6,8 +6,13 @@ const FeaturedJob = ({ job }) => {
       <Link to={`/job/${job._id}`}>
         <h2>{job.jobTitle}</h2>
         <p>
-          {job.companyName}-{job.location}
+          {job.companyName}-{job.state}
         </p>
+        <p>
+          {' '}
+          {job.city}-{job.location}
+        </p>
+
         <p> {job.jobType}</p>
         <p>{job.salary}</p>
         {/* <p>{job.jobDescription.slice(0,80)}<span>......</span></p> */}

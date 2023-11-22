@@ -7,7 +7,7 @@ export const Home = () => {
   return (
     <div>
       <HeroArea />
-      <SearchInput />
+      <SearchInput isFeatured={true}/>
       <FeaturedJobs />
     </div>
   )

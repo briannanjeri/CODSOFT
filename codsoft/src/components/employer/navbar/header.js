@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Header = () => {
   return (
@@ -12,8 +13,12 @@ export const Header = () => {
 
         <div className="nav-links">
           <ul>
+            <Link to='/employer/Dashboard'>
             <li>Home</li>
+            </Link>
+            <Link to='/employer/jobPostings'>
             <li>Job Posting</li>
+            </Link>
             <li>Job Listing</li>
             <li>Application Management</li>
             <li>Profile</li>

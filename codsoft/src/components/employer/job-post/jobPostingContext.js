@@ -4,6 +4,8 @@ export const JobPostingsContext = createContext()
 
 export const JobPostingsProvider = ({ children }) => {
   const [jobPostings, setJobPostings] = useState([])
+  const [featuredJobPostings, setFeaturedJobPostings] = useState([])
+  const [allJobsPosted, setAllJobsPosted] = useState([])
 
   const fetchJobPostings = async () => {
     try {
@@ -14,7 +16,9 @@ export const JobPostingsProvider = ({ children }) => {
 
       const data = await response.json()
 
-      setJobPostings(data)
+      setJobPostings(data.regularJobPostings)
+      setFeaturedJobPostings(data.featuredJobPostings)
+      setAllJobsPosted(data.regularJobPostings)
       console.log('jobPostingsData', jobPostings)
     } catch (error) {
       console.error('Error fetching job postings:', error)
@@ -26,5 +30,25 @@ export const JobPostingsProvider = ({ children }) => {
     fetchJobPostings()
   }, []) // Empty dependency array to run the effect once when the component mounts
 
-  return <JobPostingsContext.Provider value={[jobPostings, setJobPostings]}>{children}</JobPostingsContext.Provider>
+  return (
+    <JobPostingsContext.Provider
+      value={{
+        allJobsPosted,
+        setAllJobsPosted,
+        jobPostings,
+        setJobPostings,
+        featuredJobPostings,
+        setFeaturedJobPostings,
+      }}
+    >
+      {children}
+    </JobPostingsContext.Provider>
+  )
+}
+export const useJobPostingContext = () => {
+  const context = useContext(JobPostingsContext)
+  if (!context) {
+    throw new Error('useDataContext must be used within a DataProvider')
+  }
+  return context
 }

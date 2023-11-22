@@ -13,7 +13,7 @@ export const DropDown = ({ title, options }) => {
 
       <div className="dropdown-content">
         {options.map((option, index) => (
-          <span key={index}>{option}</span>
+          <span key={index} >{option}</span>
         ))}
       </div>
     </div>

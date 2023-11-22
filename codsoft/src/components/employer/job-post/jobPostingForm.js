@@ -7,6 +7,8 @@ import './style.css'
 const validationSchema = yup.object({
   jobTitle: yup.string().required('Job Title is required'),
   companyName: yup.string().required('Company Name is required'),
+  state: yup.string().required('State is required'),
+  city: yup.string().required('City is required'),
   location: yup.string().required('Location is required'),
   category: yup.string().required('Category is required'),
   jobType: yup.string().required('Job Type is required'),
@@ -22,6 +24,8 @@ const EmployerJobPostingForm = () => {
   const initialValues = {
     jobTitle: '',
     companyName: '',
+    state: '',
+    city: '',
     location: '',
     category: '',
     jobType: '',
@@ -40,6 +44,8 @@ const EmployerJobPostingForm = () => {
       const requestBody = {
         jobTitle: values.jobTitle,
         companyName: values.companyName,
+        state:values.state,
+        city:values.city,
         location: values.location,
         category: values.category,
         jobType: values.jobType,
@@ -96,6 +102,19 @@ const EmployerJobPostingForm = () => {
               </label>
               <Field type="text" name="companyName" />
               {errors.companyName && touched.companyName && <div className="error">{errors.companyName}</div>}
+
+              <label htmlFor="state">
+                State<span className="required">*</span>
+              </label>
+              <Field type="text" name="state" />
+              {errors.state && touched.state && <div className="error">{errors.state}</div>}
+
+              <label htmlFor="city">
+                City<span className="required">*</span>
+              </label>
+              <Field type="text" name="city" />
+              {errors.city && touched.city && <div className="error">{errors.city}</div>}
+
               <label htmlFor="location">
                 Location<span className="required">*</span>
               </label>

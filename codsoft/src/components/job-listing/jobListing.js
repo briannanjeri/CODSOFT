@@ -2,13 +2,12 @@ import React from 'react'
 import { SearchInput } from '../searchInput/searchInput'
 import joblistings from '../../utils/featuredJobs.json'
 import FeaturedJob from '../home/featuredJob'
-import { useContext } from 'react'
-import { JobPostingsContext } from '../employer/job-post/jobPostingContext'
+import { useJobPostingContext } from '../employer/job-post/jobPostingContext'
 import './style.css'
 
 export const JobListing = () => {
   const jobs = joblistings.featuredJobs
-  const [jobPostings, setJobPostings] = useContext(JobPostingsContext)
+const { jobPostings, setJobPostings } = useJobPostingContext();
   console.log('jobs', jobPostings)
 
   return (
@@ -19,7 +18,7 @@ export const JobListing = () => {
           <h2>Discover exciting job opportunities from top companies</h2>
         </div>
         <div>
-          <SearchInput />
+          <SearchInput isFeatured={false}/>
         </div>
       </div>
       <h1 className="job-listing-title">Browse Exciting Job Opportunities</h1>
