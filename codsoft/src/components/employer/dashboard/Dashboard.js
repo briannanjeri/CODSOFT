@@ -1,13 +1,13 @@
 import React from 'react'
 import HeroSection from './hero-section'
 import { Statistics } from './statistics'
-import { RecentJobPostings } from './recentJobPostings'
+import { PostedJobList } from './postedJobList'
 const Dashboard = () => {
   return (
     <div>
       <HeroSection />
-      <Statistics />
-      <RecentJobPostings />
+      <PostedJobList/>
+      {/* <Statistics /> */}
     </div>
   )
 }

@@ -13,7 +13,7 @@ const HeroSection = () => {
           <h2>Manage Your Job Listings and Applications.</h2>
         </div>
       </div>
-      <h2 className="statistics-title">Key Statistics</h2>
+      {/* <h2 className="statistics-title">Key Statistics</h2> */}
     </div>
   )
 }

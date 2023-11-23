@@ -30,12 +30,15 @@ export const JobSeekerLoginForm = ({ onFormSwitch }) => {
         saveTokenToLocalStorage(data.token)
         //check for pending application
         const pendingApplication = localStorage.getItem('pendingApplication')
+        const jobId = localStorage.getItem('jobId')
+
         if (pendingApplication) {
           // Clear the flag
+          
+          // Redirect the user to the job application page
+          navigate(`/jobs/${jobId}/apply`)
           localStorage.removeItem('pendingApplication')
 
-          // Redirect the user to the job application page
-          navigate('/jobApplication')
         } else {
           // Redirect the user to the dashboard or the desired page
           navigate('/employer/dashboard')

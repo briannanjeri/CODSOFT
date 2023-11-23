@@ -4,20 +4,24 @@ import { Formik, Field, Form } from 'formik'
 import { initialValues } from './applicationFormDetails'
 import { JobValidationSchema } from './applicationFormDetails'
 import { applyForJob } from '../services/jobApplication'
+import { useParams } from 'react-router-dom'
 import './style.css'
 
 export const JobApplicationForm = () => {
   const [file, setFile] = useState(null);
+  const [url, setUrl] = useState("");
+
      console.log('file', file)
+  const {jobId} = useParams();
+  console.log('applicationId', jobId)
 
  const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     setFile(selectedFile);
   };
 
-  
     const handleSubmit = (values) => {
-      applyForJob(values, file);
+      applyForJob(values, file, jobId, url, setUrl);
     };
   return (
     <Formik initialValues={initialValues} validationSchema={JobValidationSchema} onSubmit={handleSubmit}>

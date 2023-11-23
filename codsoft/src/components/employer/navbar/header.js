@@ -19,7 +19,6 @@ export const Header = () => {
             <Link to='/employer/jobPostings'>
             <li>Job Posting</li>
             </Link>
-            <li>Job Listing</li>
             <li>Application Management</li>
             <li>Profile</li>
           </ul>

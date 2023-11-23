@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-const FeaturedJob = ({ job }) => {
+
+const JobCard = ({ job }) => {
   return (
-    <div className="job-container">
-      <Link to={`/jobseeker/${job._id}`}>
+<div className="job-container">
+      <Link to={`/employer/job-details/${job._id}`}>
         <h2>{job.jobTitle}</h2>
         <p>
           {job.companyName}-{job.state}
@@ -21,4 +22,4 @@ const FeaturedJob = ({ job }) => {
   )
 }
 
-export default FeaturedJob
+export default JobCard

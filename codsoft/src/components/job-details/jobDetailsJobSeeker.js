@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
 import './style.css'
 import { useNavigate } from 'react-router-dom'
-const JobDetails = () => {
+export const JobDetailsJobSeeker = ( { jobId } ) => {
   const navigate = useNavigate()
 
-  const { _id } = useParams()
-  console.log('jobId', _id)
   const [job, setJob] = useState(null)
   const [loading, setLoading] = useState(true)
 
@@ -14,9 +11,11 @@ const JobDetails = () => {
 
   const handleApplyClick = () => {
     localStorage.setItem('pendingApplication', 'true')
+    localStorage.setItem('jobId', jobId)
+
 
     if (isLoggedIn) {
-      navigate('/jobApplication')
+      navigate(`/jobs/${jobId}/apply`)
     } else {
       navigate('/jobSeeker')
     }
@@ -25,7 +24,7 @@ const JobDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/jobs/${_id}`)
+        const response = await fetch(`http://localhost:3001/jobs/${jobId}`)
         if (!response.ok) {
           const data = await response.json()
           throw new Error(data.error)
@@ -44,7 +43,7 @@ const JobDetails = () => {
     }
 
     fetchData()
-  }, [_id])
+  }, [jobId])
 
   if (loading) {
     return <div className="job-details-loading">Loading...</div>
@@ -56,9 +55,11 @@ const JobDetails = () => {
 
   return (
     <div className="job-details-container">
-      <button className="top-applyButton" onClick={handleApplyClick}>
-        Apply
-      </button>
+     
+        <button className="top-applyButton" onClick={handleApplyClick}>
+          Apply
+        </button>
+
 
       <h1 className="job-details-title">{job.jobTitle}</h1>
       <p className="job-details-info">
@@ -90,11 +91,10 @@ const JobDetails = () => {
         <div className="job-details-deadline">
           <h3>Application Deadline</h3>
           <p> {job.applicationDeadline}</p>
-          <button className="bottom-applyButton">Apply</button>
+          {/* <button className="bottom-applyButton">Apply</button> */}
         </div>
       </div>
     </div>
   )
 }
 
-export default JobDetails

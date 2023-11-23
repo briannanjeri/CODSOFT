@@ -7,9 +7,11 @@ import EmployerJobPostingForm from './components/employer/job-post/jobPostingFor
 import Dashboard from './components/employer/dashboard/Dashboard'
 import { Header } from './components/employer/navbar/header'
 import { JobListing } from './components/job-listing/jobListing'
-import JobDetails from './components/job-details/job-details'
 import { JobApplicationForm } from './components/applicationForm/jobApplicationForm'
 import { CandidateIndex } from './components/jobSeekerAuthForm'
+import { JobDetailsWrapper } from './components/jobDetailsWrapper/jobDetailsWrapper'
+import { PostedJobDetail } from './components/employer/postedJobDetail/postedJobDetail'
+import ViewApplicationsPage from './components/applications/viewApplicationsPage'
 function App() {
   const location = useLocation()
   const isEmployerRoute = location.pathname.includes('/employer')
@@ -23,9 +25,12 @@ function App() {
         <Route path="/employer/jobPostings" element={<EmployerJobPostingForm />}></Route>
         <Route path="/employer/dashboard" element={<Dashboard />}></Route>
         <Route path="/jobListing" element={<JobListing />}></Route>
-        <Route path="/job/:_id" element={<JobDetails />} />
-        <Route path="/jobApplication" element={<JobApplicationForm />} />
+        <Route path="/jobseeker/:_id" element={<JobDetailsWrapper />} />
+        <Route path="/employer/job-details/:_id" element={<PostedJobDetail />} />
+        <Route path="/employer/job-listings/" element={<PostedJobDetail />} />
+        <Route path="/jobs/:jobId/apply" element={<JobApplicationForm />} />
         <Route path="/jobSeeker" element={<CandidateIndex />}></Route>
+        <Route path="/employer/jobs/:_id/applications" element={<ViewApplicationsPage/>} />
       </Routes>
     </div>
   )
