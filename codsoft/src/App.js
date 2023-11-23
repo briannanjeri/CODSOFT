@@ -12,6 +12,7 @@ import { CandidateIndex } from './components/jobSeekerAuthForm'
 import { JobDetailsWrapper } from './components/jobDetailsWrapper/jobDetailsWrapper'
 import { PostedJobDetail } from './components/employer/postedJobDetail/postedJobDetail'
 import ViewApplicationsPage from './components/applications/viewApplicationsPage'
+import FullApplicationDetailsPage from './components/applications/fullApplicationDetailsPage'
 function App() {
   const location = useLocation()
   const isEmployerRoute = location.pathname.includes('/employer')
@@ -31,6 +32,8 @@ function App() {
         <Route path="/jobs/:jobId/apply" element={<JobApplicationForm />} />
         <Route path="/jobSeeker" element={<CandidateIndex />}></Route>
         <Route path="/employer/jobs/:_id/applications" element={<ViewApplicationsPage/>} />
+         <Route path="/applications/:applicationId/" element={<FullApplicationDetailsPage/>} />
+
       </Routes>
     </div>
   )

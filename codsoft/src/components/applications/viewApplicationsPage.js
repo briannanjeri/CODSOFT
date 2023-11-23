@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ViewApplicationsPage = () => {
   const [applications, setApplications] = useState([]);
@@ -39,14 +40,17 @@ const { _id} = useParams();
     <div>
       <h1>View Applications</h1>
       <div>
-        {applications.map((application, index) => (
-          <div key={index}>
+        {applications.map((application) => (
+          <div key={application.applicationId}>
             <h3>{application.applicantName}</h3>
             <p>Contact Information: {application.contactInformation}</p>
             <p>Resume: {application.resume}</p>
             <p>Cover Letter: {application.coverLetter}</p>
             <p>Additional Information: {application.additionalInfo}</p>
             {/* Add more details as needed */}
+             <Link to={`/applications/${application.applicationId}`}>
+              <button>View Full Details</button>
+            </Link>
           </div>
         ))}
       </div>
