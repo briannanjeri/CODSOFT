@@ -7,7 +7,7 @@ export const updateApplicationStatus = async (applicationId, status, application
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        // Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({ status }),
     })

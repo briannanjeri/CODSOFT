@@ -10,7 +10,9 @@ export const JobDetailsJobSeeker = ({ jobId }) => {
   const isLoggedIn = localStorage.getItem('token') !== null
 
   const handleApplyClick = () => {
-    localStorage.setItem('pendingApplication', 'true')
+    if (!isLoggedIn) {
+      localStorage.setItem('pendingApplication', 'true')
+    }
     localStorage.setItem('jobId', jobId)
 
     if (isLoggedIn) {

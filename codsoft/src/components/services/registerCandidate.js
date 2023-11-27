@@ -15,10 +15,10 @@ export const RegisterCandidate = async (
   try {
     const isUsernameValid = validateUsername(username, setUsernameError)
     const isEmailValid = validateEmail(email, setEmailError)
-    const isPasswordValid = validatePassword(password, setPasswordError)
+    // const isPasswordValid = validatePassword(password, setPasswordError)
 
     // If any validation fails, stop the registration process
-    if (!isUsernameValid || !isEmailValid || !isPasswordValid) {
+    if (!isUsernameValid || !isEmailValid) {
       console.log('validation failed')
       return
     }

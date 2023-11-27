@@ -44,6 +44,11 @@ export const NavDropDown = ({ title, options }) => {
                 {option}
               </Link>
             )}
+            {option === 'Your Applications' && (
+              <Link to="/candidate/view-applications" style={{ textDecoration: 'none' }}>
+                {option}
+              </Link>
+            )}
             {option === 'LogOut' && (
               <Link onClick={handleLogout} style={{ textDecoration: 'none' }}>
                 {option}

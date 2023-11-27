@@ -39,8 +39,6 @@ const EmployerJobPostingForm = () => {
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
-      const apiUrl = '/api/jobPostings/createJobPosting'
-
       const requestBody = {
         jobTitle: values.jobTitle,
         companyName: values.companyName,
@@ -58,9 +56,11 @@ const EmployerJobPostingForm = () => {
       }
 
       // Make the API request
+      const token = localStorage.getItem('employerToken')
       const response = await fetch('http://localhost:3001/jobPosting', {
         method: 'POST',
         headers: {
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(requestBody),

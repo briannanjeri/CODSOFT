@@ -1,10 +1,9 @@
 import React from 'react'
-import recentJobsPosted from '../../../utils/featuredJobs.json'
-import FeaturedJob from '../../home/featuredJob'
-import { useJobPostingContext } from '../job-post/jobPostingContext'
+import { useEmployerJobContext } from '../job-post/employerJobsContext'
 import JobCard from '../jobCard/jobCard'
 export const PostedJobList = () => {
-  const { allJobsPosted, setAllJobsPosted } = useJobPostingContext()
+  const { employerJobPostings, setEmployerJobPostings } = useEmployerJobContext()
+  console.log('employerjobPostingsData', employerJobPostings)
 
   return (
     <div className="job-listings">
@@ -12,7 +11,7 @@ export const PostedJobList = () => {
         <h2>Your Posted Jobs</h2>
       </div>
       <div className="featuredJobs-container">
-        {allJobsPosted.map(job => (
+        {employerJobPostings.map(job => (
           <div key={job._id} className="job-card">
             <JobCard job={job} />
           </div>

@@ -7,7 +7,7 @@ export const Navbar = () => {
   //  const loginOptions = ['Employer', 'Jobseeker', {page:'login'}];
   const registerOptions = ['Employer', 'Jobseeker']
   const pagesOptions = ['FAQs', 'Privacy Policy']
-  const CandidateProfileOptions = ['Account-settings', 'LogOut']
+  const CandidateProfileOptions = ['Account-settings', 'Your Applications', 'LogOut']
 
   const Usertoken = localStorage.getItem('token')
 

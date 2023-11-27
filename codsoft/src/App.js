@@ -15,6 +15,7 @@ import ViewApplicationsPage from './components/applications/viewApplicationsPage
 import FullApplicationDetailsPage from './components/applications/fullApplicationDetailsPage'
 import { AccountSettings } from './components/employer/accountSettings/accountSettings'
 import { CandidateAccountSettings } from './components/employer/accountSettings/candidateAccountSettings'
+import { YourApplications } from './components/candidate/yourApplications'
 function App() {
   const location = useLocation()
   const isEmployerRoute = location.pathname.includes('/employer')
@@ -36,7 +37,8 @@ function App() {
         <Route path="/employer/jobs/:_id/applications" element={<ViewApplicationsPage />} />
         <Route path="/applications/:applicationId/" element={<FullApplicationDetailsPage />} />
         <Route path="/employer/account-settings" element={<AccountSettings />}></Route>
-        <Route path="/candidate/account-settings" element={<CandidateAccountSettings />}></Route>
+        <Route path="/candidate/account-settings" element={<CandidateAccountSettings />} />
+        <Route path="/candidate/view-applications" element={<YourApplications />} />
       </Routes>
     </div>
   )

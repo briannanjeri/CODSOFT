@@ -6,10 +6,10 @@ import { JobValidationSchema } from './applicationFormDetails'
 import { applyForJob } from '../services/jobApplication'
 import { useParams } from 'react-router-dom'
 import './style.css'
-
 export const JobApplicationForm = () => {
   const [file, setFile] = useState(null)
   const [url, setUrl] = useState('')
+  const [errorMessage, setErrorMessage] = useState(null)
 
   console.log('file', file)
   const { jobId } = useParams()
@@ -21,7 +21,7 @@ export const JobApplicationForm = () => {
   }
 
   const handleSubmit = values => {
-    applyForJob(values, file, jobId, url, setUrl)
+    applyForJob(values, file, jobId, url, setUrl, setErrorMessage)
   }
   return (
     <Formik initialValues={initialValues} validationSchema={JobValidationSchema} onSubmit={handleSubmit}>
@@ -168,6 +168,7 @@ export const JobApplicationForm = () => {
             <Field as="textarea" name="coverLetter" />
             {errors.coverLetter && touched.coverLetter && <div className="error">{errors.coverLetter}</div>}{' '}
           </div>
+          {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
 
           {/* Submission button */}
           <div className="form-group">

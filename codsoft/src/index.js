@@ -7,17 +7,21 @@ import { DataProvider } from './components/employer/job-post/dataContext'
 import { JobPostingsProvider } from './components/employer/job-post/jobPostingContext'
 import { EmployerProfileProvider } from './components/employer/job-post/employerProfileContext'
 import { CandidateProfileProvider } from './components/employer/job-post/candidateProfileContext'
+import { EmployerJobProvider } from './components/employer/job-post/employerJobsContext'
 const root = ReactDOM.createRoot(document.getElementById('root'))
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <CandidateProfileProvider>
         <EmployerProfileProvider>
-          <JobPostingsProvider>
-            <DataProvider>
-              <App />
-            </DataProvider>
-          </JobPostingsProvider>
+          <EmployerJobProvider>
+            <JobPostingsProvider>
+              <DataProvider>
+                <App />
+              </DataProvider>
+            </JobPostingsProvider>
+          </EmployerJobProvider>
         </EmployerProfileProvider>
       </CandidateProfileProvider>
     </BrowserRouter>
