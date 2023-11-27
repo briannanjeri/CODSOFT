@@ -9,15 +9,16 @@ export const registerEmployer = async values => {
     })
 
     if (!response.ok) {
-      console.error('Registration failed:', response.statusText)
-      throw new Error('Registration failed')
+      const data = await response.json()
+      console.error('error', data.error)
+      throw new Error(data.error)
     } else {
       const data = await response.json()
+
       console.log('Registration successful:', data)
       return data
     }
   } catch (error) {
-    console.error('Error during registration:', error)
-    throw error
+    console.error(error)
   }
 }

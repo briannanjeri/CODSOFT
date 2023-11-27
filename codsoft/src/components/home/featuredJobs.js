@@ -6,9 +6,7 @@ import { DropDown } from '../../drop/dropDown'
 import { useJobPostingContext } from '../employer/job-post/jobPostingContext'
 
 export const FeaturedJobs = () => {
-  const {featuredJobPostings,
-        setFeaturedJobPostings } = useJobPostingContext();
- 
+  const { featuredJobPostings, setFeaturedJobPostings } = useJobPostingContext()
 
   const featuredJobs = featuredJobsData.featuredJobs
   const jobTypeOptions = ['Full-Time', 'Part-Time', 'Contract']

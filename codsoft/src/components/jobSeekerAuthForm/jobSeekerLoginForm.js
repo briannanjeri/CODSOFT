@@ -34,11 +34,10 @@ export const JobSeekerLoginForm = ({ onFormSwitch }) => {
 
         if (pendingApplication) {
           // Clear the flag
-          
+
           // Redirect the user to the job application page
           navigate(`/jobs/${jobId}/apply`)
           localStorage.removeItem('pendingApplication')
-
         } else {
           // Redirect the user to the dashboard or the desired page
           navigate('/employer/dashboard')

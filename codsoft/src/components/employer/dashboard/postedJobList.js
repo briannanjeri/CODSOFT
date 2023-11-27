@@ -4,8 +4,7 @@ import FeaturedJob from '../../home/featuredJob'
 import { useJobPostingContext } from '../job-post/jobPostingContext'
 import JobCard from '../jobCard/jobCard'
 export const PostedJobList = () => {
-  const { allJobsPosted, setAllJobsPosted } = useJobPostingContext();
-
+  const { allJobsPosted, setAllJobsPosted } = useJobPostingContext()
 
   return (
     <div className="job-listings">

@@ -13,13 +13,15 @@ import { JobDetailsWrapper } from './components/jobDetailsWrapper/jobDetailsWrap
 import { PostedJobDetail } from './components/employer/postedJobDetail/postedJobDetail'
 import ViewApplicationsPage from './components/applications/viewApplicationsPage'
 import FullApplicationDetailsPage from './components/applications/fullApplicationDetailsPage'
+import { AccountSettings } from './components/employer/accountSettings/accountSettings'
+import { CandidateAccountSettings } from './components/employer/accountSettings/candidateAccountSettings'
 function App() {
   const location = useLocation()
   const isEmployerRoute = location.pathname.includes('/employer')
 
   return (
     <div className="App">
-      {!isEmployerRoute ? <Navbar /> : <Header/>}
+      {!isEmployerRoute ? <Navbar /> : <Header />}
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/employer*" element={<Index />}></Route>
@@ -31,9 +33,10 @@ function App() {
         <Route path="/employer/job-listings/" element={<PostedJobDetail />} />
         <Route path="/jobs/:jobId/apply" element={<JobApplicationForm />} />
         <Route path="/jobSeeker" element={<CandidateIndex />}></Route>
-        <Route path="/employer/jobs/:_id/applications" element={<ViewApplicationsPage/>} />
-         <Route path="/applications/:applicationId/" element={<FullApplicationDetailsPage/>} />
-
+        <Route path="/employer/jobs/:_id/applications" element={<ViewApplicationsPage />} />
+        <Route path="/applications/:applicationId/" element={<FullApplicationDetailsPage />} />
+        <Route path="/employer/account-settings" element={<AccountSettings />}></Route>
+        <Route path="/candidate/account-settings" element={<CandidateAccountSettings />}></Route>
       </Routes>
     </div>
   )

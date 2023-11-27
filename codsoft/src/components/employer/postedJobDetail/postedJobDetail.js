@@ -2,20 +2,17 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-
 export const PostedJobDetail = () => {
-  const navigate=useNavigate()
-const {_id} = useParams();
-  console.log('jobIdddd', _id)
+  const navigate = useNavigate()
+  const { _id } = useParams()
   const [job, setJob] = useState(null)
-  const [loading, setLoading] = useState(true)   
+  const [loading, setLoading] = useState(true)
 
-const  handleViewApplicationsClick=()=>{
+  const handleViewApplicationsClick = () => {
     navigate(`/employer/jobs/${_id}/applications`)
-}
+  }
 
-
-   useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`http://localhost:3001/jobs/${_id}`)
@@ -25,7 +22,6 @@ const  handleViewApplicationsClick=()=>{
         }
 
         const data = await response.json()
-        console.log('jobdetails', data)
 
         // Set the job details in the state
         setJob(data)
@@ -45,13 +41,12 @@ const  handleViewApplicationsClick=()=>{
 
   if (!job) {
     return <div className="job-details-error">Error: Job not found</div>
-  } 
+  }
   return (
     <div className="job-details-container">
-    
-         <button className="top-viewApplicationsButton" onClick={handleViewApplicationsClick} >
-          View Applications
-        </button>
+      <button className="top-viewApplicationsButton" onClick={handleViewApplicationsClick}>
+        View Applications
+      </button>
 
       <h1 className="job-details-title">{job.jobTitle}</h1>
       <p className="job-details-info">
@@ -89,4 +84,3 @@ const  handleViewApplicationsClick=()=>{
     </div>
   )
 }
-

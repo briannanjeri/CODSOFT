@@ -1,0 +1,79 @@
+.profile-data {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f8f8f8;
+  width: 400px;
+}
+
+.profile-data p {
+  margin: 10px 0;
+}
+
+.profile-data strong {
+  font-weight: bold;
+}
+
+.save-button {
+  background-color: #007bff;
+  color: #fff;
+  height: 31px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 20px;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.cancel-button {
+  background-color: #ff5555;
+  color: #333;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 60px;
+}
+
+.cancel-button:hover {
+  background-color: #ff3333;
+}
+
+.form-container {
+  width: 50%;
+  margin: auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}

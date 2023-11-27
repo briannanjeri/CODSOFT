@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const JobCard = ({ job }) => {
   return (
-<div className="job-container">
+    <div className="job-container">
       <Link to={`/employer/job-details/${job._id}`}>
         <h2>{job.jobTitle}</h2>
         <p>

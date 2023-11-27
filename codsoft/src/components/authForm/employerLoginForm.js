@@ -3,6 +3,7 @@ import { useState } from 'react'
 import * as yup from 'yup'
 import { Formik, Form, Field } from 'formik'
 import './style.css'
+import { useNavigate } from 'react-router-dom'
 
 const initialValues = {
   email: '',
@@ -15,6 +16,35 @@ const validationSchema = yup.object({
 })
 
 export const EmployerLoginForm = ({ onFormSwitch }) => {
+  const navigate = useNavigate()
+
+  const handleSubmit = async values => {
+    console.log('employervalues', values)
+    try {
+      // Make the API request to handle login
+      const response = await fetch('http://localhost:3001/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        console.log('employerData', data)
+        localStorage.setItem('employerToken', data.token)
+
+        console.log('Login successful')
+        navigate('/employer/dashboard')
+      } else {
+        console.error('Login failed')
+      }
+    } catch (error) {
+      console.error('Error during login:', error)
+    }
+  }
+
   return (
     <div className="auth-container">
       <header className="header">
@@ -30,11 +60,7 @@ export const EmployerLoginForm = ({ onFormSwitch }) => {
       <div className="input-container">
         <h2>Log In</h2>
 
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          // onSubmit={handleSubmit}
-        >
+        <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
           {({ errors, touched }) => (
             <Form className="employer-form">
               <div className="form-control-inputs">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './style.css'
 import { useNavigate } from 'react-router-dom'
-export const JobDetailsJobSeeker = ( { jobId } ) => {
+export const JobDetailsJobSeeker = ({ jobId }) => {
   const navigate = useNavigate()
 
   const [job, setJob] = useState(null)
@@ -12,7 +12,6 @@ export const JobDetailsJobSeeker = ( { jobId } ) => {
   const handleApplyClick = () => {
     localStorage.setItem('pendingApplication', 'true')
     localStorage.setItem('jobId', jobId)
-
 
     if (isLoggedIn) {
       navigate(`/jobs/${jobId}/apply`)
@@ -55,11 +54,9 @@ export const JobDetailsJobSeeker = ( { jobId } ) => {
 
   return (
     <div className="job-details-container">
-     
-        <button className="top-applyButton" onClick={handleApplyClick}>
-          Apply
-        </button>
-
+      <button className="top-applyButton" onClick={handleApplyClick}>
+        Apply
+      </button>
 
       <h1 className="job-details-title">{job.jobTitle}</h1>
       <p className="job-details-info">
@@ -97,4 +94,3 @@ export const JobDetailsJobSeeker = ( { jobId } ) => {
     </div>
   )
 }
-

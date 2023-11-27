@@ -25,7 +25,7 @@ export const JobSeekerRegisterForm = ({ onFormSwitch }) => {
         </nav>
       </header>
       <div className="input-container">
-        <form className="employer-form" >
+        <form className="employer-form">
           <h2>Sign UP</h2>
           <input
             type="text"

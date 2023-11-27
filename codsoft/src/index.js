@@ -5,16 +5,21 @@ import App from './App'
 import { BrowserRouter } from 'react-router-dom'
 import { DataProvider } from './components/employer/job-post/dataContext'
 import { JobPostingsProvider } from './components/employer/job-post/jobPostingContext'
-
+import { EmployerProfileProvider } from './components/employer/job-post/employerProfileContext'
+import { CandidateProfileProvider } from './components/employer/job-post/candidateProfileContext'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <JobPostingsProvider>
-        <DataProvider>
-          <App />
-        </DataProvider>
-      </JobPostingsProvider>
+      <CandidateProfileProvider>
+        <EmployerProfileProvider>
+          <JobPostingsProvider>
+            <DataProvider>
+              <App />
+            </DataProvider>
+          </JobPostingsProvider>
+        </EmployerProfileProvider>
+      </CandidateProfileProvider>
     </BrowserRouter>
   </React.StrictMode>
 )

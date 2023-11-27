@@ -44,8 +44,8 @@ const EmployerJobPostingForm = () => {
       const requestBody = {
         jobTitle: values.jobTitle,
         companyName: values.companyName,
-        state:values.state,
-        city:values.city,
+        state: values.state,
+        city: values.city,
         location: values.location,
         category: values.category,
         jobType: values.jobType,

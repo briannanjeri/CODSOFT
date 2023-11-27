@@ -1,0 +1,11 @@
+.profile-image {
+  width: 30px;
+  /* Adjust as needed */
+  height: 30px;
+  /* Adjust as needed */
+  border-radius: 50%;
+  margin-right: 10px;
+  /* Adjust as needed for spacing */
+  object-fit: cover;
+  /* Ensures the image maintains its aspect ratio and covers the entire container */
+}

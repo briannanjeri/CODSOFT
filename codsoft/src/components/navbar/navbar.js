@@ -7,6 +7,10 @@ export const Navbar = () => {
   //  const loginOptions = ['Employer', 'Jobseeker', {page:'login'}];
   const registerOptions = ['Employer', 'Jobseeker']
   const pagesOptions = ['FAQs', 'Privacy Policy']
+  const CandidateProfileOptions = ['Account-settings', 'LogOut']
+
+  const Usertoken = localStorage.getItem('token')
+
   return (
     <div>
       <nav className="navbar">
@@ -30,7 +34,13 @@ export const Navbar = () => {
             <li>About us</li>
             <li>contact us</li>
             {/* <NavDropDown title="Login" options={loginOptions} /> */}
-            <NavDropDown title="Register" options={registerOptions} />
+            {!Usertoken && <NavDropDown title="Register" options={registerOptions} />}
+            {Usertoken && (
+              <NavDropDown
+                title={<img src="/blank-profile-picture.png" alt="Profile" className="profile-image" />}
+                options={CandidateProfileOptions}
+              />
+            )}
           </ul>
         </div>
       </nav>

@@ -7,7 +7,7 @@ import './style.css'
 
 export const JobListing = () => {
   const jobs = joblistings.featuredJobs
-const { jobPostings, setJobPostings } = useJobPostingContext();
+  const { jobPostings, setJobPostings } = useJobPostingContext()
   console.log('jobs', jobPostings)
 
   return (
@@ -18,7 +18,7 @@ const { jobPostings, setJobPostings } = useJobPostingContext();
           <h2>Discover exciting job opportunities from top companies</h2>
         </div>
         <div>
-          <SearchInput isFeatured={false}/>
+          <SearchInput isFeatured={false} />
         </div>
       </div>
       <h1 className="job-listing-title">Browse Exciting Job Opportunities</h1>
