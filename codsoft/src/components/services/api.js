@@ -1,6 +1,8 @@
 export const registerEmployer = async values => {
+  const apiUrl = process.env.REACT_APP_API_URL
+
   try {
-    const response = await fetch('http://localhost:3001/register', {
+    const response = await fetch(`${apiUrl}/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

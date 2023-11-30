@@ -28,9 +28,10 @@ export const RegisterCandidate = async (
       email,
       password,
     }
-    console.log('regisraionData', registrationData)
+    const apiUrl = process.env.REACT_APP_API_URL
+
     // Make the API request to register the job seeker
-    const response = await fetch(' http://localhost:3001/candidate/register', {
+    const response = await fetch(`${apiUrl}/candidate/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

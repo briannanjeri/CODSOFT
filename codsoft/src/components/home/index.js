@@ -5,7 +5,7 @@ import { FeaturedJobs } from './featuredJobs'
 
 export const Home = () => {
   return (
-    <div>
+    <div className="home-container">
       <HeroArea />
       <SearchInput isFeatured={true} />
       <FeaturedJobs />

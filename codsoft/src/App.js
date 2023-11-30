@@ -29,13 +29,13 @@ function App() {
         <Route path="/employer/jobPostings" element={<EmployerJobPostingForm />}></Route>
         <Route path="/employer/dashboard" element={<Dashboard />}></Route>
         <Route path="/jobListing" element={<JobListing />}></Route>
-        <Route path="/jobseeker/:_id" element={<JobDetailsWrapper />} />
+        <Route path="/jobListing/job-details/:_id" element={<JobDetailsWrapper />} />
         <Route path="/employer/job-details/:_id" element={<PostedJobDetail />} />
         <Route path="/employer/job-listings/" element={<PostedJobDetail />} />
         <Route path="/jobs/:jobId/apply" element={<JobApplicationForm />} />
         <Route path="/jobSeeker" element={<CandidateIndex />}></Route>
         <Route path="/employer/jobs/:_id/applications" element={<ViewApplicationsPage />} />
-        <Route path="/applications/:applicationId/" element={<FullApplicationDetailsPage />} />
+        <Route path="/employer/jobs-applications/:applicationId/" element={<FullApplicationDetailsPage />} />
         <Route path="/employer/account-settings" element={<AccountSettings />}></Route>
         <Route path="/candidate/account-settings" element={<CandidateAccountSettings />} />
         <Route path="/candidate/view-applications" element={<YourApplications />} />

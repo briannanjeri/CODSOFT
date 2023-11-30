@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 
 export const JobPostingsContext = createContext()
-
+const apiUrl = process.env.REACT_APP_API_URL
+console.log('renderapi', apiUrl)
 export const JobPostingsProvider = ({ children }) => {
   const [jobPostings, setJobPostings] = useState([])
   const [featuredJobPostings, setFeaturedJobPostings] = useState([])
@@ -9,7 +10,7 @@ export const JobPostingsProvider = ({ children }) => {
 
   const fetchJobPostings = async () => {
     try {
-      const response = await fetch('http://localhost:3001/jobPostings')
+      const response = await fetch(`${apiUrl}/jobPostings`)
       if (!response.ok) {
         throw new Error('Failed to fetch job postings')
       }
@@ -19,7 +20,6 @@ export const JobPostingsProvider = ({ children }) => {
       setJobPostings(data.regularJobPostings)
       setFeaturedJobPostings(data.featuredJobPostings)
       setAllJobsPosted(data.regularJobPostings)
-      console.log('jobPostingsData', jobPostings)
     } catch (error) {
       console.error('Error fetching job postings:', error)
       throw error

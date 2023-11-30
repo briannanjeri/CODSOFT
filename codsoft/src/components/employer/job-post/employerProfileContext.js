@@ -2,22 +2,20 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
 const EmployerProfileContext = createContext()
+const apiUrl = process.env.REACT_APP_API_URL
 
 export const EmployerProfileProvider = ({ children }) => {
   const [employerProfile, setEmployerProfile] = useState(null)
   useEffect(() => {
-    // Fetch employer profile data here using the token from localStorage
     const fetchProfileData = async () => {
       try {
         const token = localStorage.getItem('employerToken')
         if (!token) {
-          // Handle case where the token is missing
           console.error('No employer token found in localStorage')
           return
         }
 
-        // Replace the following with your actual API endpoint to fetch employer profile
-        const response = await fetch('http://localhost:3001/employer/profile', {
+        const response = await fetch(`${apiUrl}/employer/profile`, {
           method: 'GET',
           headers: {
             Authorization: `Bearer ${token}`,
@@ -33,7 +31,7 @@ export const EmployerProfileProvider = ({ children }) => {
 
         const data = await response.json()
         console.log('employerData', data)
-        setEmployerProfile(data) // Assuming data is an object with employer profile details
+        setEmployerProfile(data)
       } catch (error) {
         console.error('Error fetching employer profile data:', error)
       }

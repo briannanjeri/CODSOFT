@@ -77,3 +77,19 @@ button {
 button:hover {
   background-color: #2980b9;
 }
+/*--account-settings media-query--*/
+@media screen and (max-width: 600px) {
+  .profile-data {
+    width: 75%;
+    margin-left: 10px;
+  }
+
+  .form-container {
+    width: 80%;
+  }
+
+  .cancel-button {
+    margin-left: 20px;
+    width: 119.44px;
+  }
+}

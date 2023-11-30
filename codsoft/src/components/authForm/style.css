@@ -157,4 +157,16 @@
   z-index: 1;
 }
 
-/*# sourceMappingURL=auth.css.map */
+@media screen and (max-width: 600px) {
+  .employer-form {
+    padding: 20px;
+  }
+
+  .form-control-inputs input {
+    width: 100%;
+  }
+
+  .register-button {
+    width: 100%;
+  }
+}

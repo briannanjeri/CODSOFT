@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const FeaturedJob = ({ job }) => {
   return (
     <div className="job-container">
-      <Link to={`/jobseeker/${job._id}`}>
+      <Link to={`/jobListing/job-details/${job._id}`}>
         <h2>{job.jobTitle}</h2>
         <p>
           {job.companyName}-{job.state}

@@ -3,6 +3,7 @@ import './style.css'
 import { useNavigate } from 'react-router-dom'
 export const JobDetailsJobSeeker = ({ jobId }) => {
   const navigate = useNavigate()
+  const apiUrl = process.env.REACT_APP_API_URL
 
   const [job, setJob] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -25,7 +26,7 @@ export const JobDetailsJobSeeker = ({ jobId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/jobs/${jobId}`)
+        const response = await fetch(`${apiUrl}/jobs/${jobId}`)
         if (!response.ok) {
           const data = await response.json()
           throw new Error(data.error)

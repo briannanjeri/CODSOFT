@@ -6,10 +6,8 @@ export const EmployerHeaderDropdown = ({ title, options }) => {
   const navigate = useNavigate()
 
   const handleLogout = () => {
-    // Clear user session data (e.g., token)
     localStorage.removeItem('employerToken')
 
-    // Redirect to the login page or any other desired page
     navigate('/employer')
   }
   const employerId = localStorage.getItem('employerToken')

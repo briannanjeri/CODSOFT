@@ -15,11 +15,11 @@ export const FeaturedJobs = () => {
   return (
     <div className="job-listings">
       <h1>Featured job listings</h1>
-      <div className="categories">
+      {/* <div className="categories">
         <DropDown title="Job Type" options={jobTypeOptions} />
         <DropDown title="Job Location" options={jobLocationOptions} />
         <DropDown title="Date Posted" options={datePostedOptions} />
-      </div>
+      </div> */}
       <div className="featuredJobs-container">
         {featuredJobPostings.map(job => (
           <div key={job.id} className="job-card">

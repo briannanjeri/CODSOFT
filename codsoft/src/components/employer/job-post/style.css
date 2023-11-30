@@ -26,7 +26,6 @@
 .required {
   color: red;
   margin-left: 4px;
-  /* Adjust the margin as needed for spacing */
 }
 
 .submit-button:hover {

@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react'
 
 // Create a context
 const EmployerJobContext = createContext()
+const apiUrl = process.env.REACT_APP_API_URL
 
 // Context provider component
 export const EmployerJobProvider = ({ children }) => {
@@ -13,7 +14,7 @@ export const EmployerJobProvider = ({ children }) => {
   const fetchJobPostings = async () => {
     try {
       const token = localStorage.getItem('employerToken')
-      const response = await fetch('http://localhost:3001/employer/jobPostings', {
+      const response = await fetch(`${apiUrl}/employer/jobPostings`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -38,7 +39,7 @@ export const EmployerJobProvider = ({ children }) => {
 
   useEffect(() => {
     fetchJobPostings()
-  }, []) // Fetch job postings when the component mounts
+  }, [])
 
   return (
     <EmployerJobContext.Provider value={{ employerJobPostings, loading, error, fetchJobPostings }}>

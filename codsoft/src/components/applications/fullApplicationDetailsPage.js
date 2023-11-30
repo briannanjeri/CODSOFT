@@ -1,20 +1,20 @@
 // FullApplicationDetailsPage.js
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { updateApplicationStatus } from '../services/updateStatus'
 import { ApplicationActions } from './applicationActions'
 const FullApplicationDetailsPage = () => {
   const currentStatus = 'pending'
   const [applicationDetails, setApplicationDetails] = useState({})
 
   const { applicationId } = useParams()
+  console.log('applicationId', applicationId)
+  const apiUrl = process.env.REACT_APP_API_URL
 
   useEffect(() => {
-    // Fetch the details of the specific application using the applicationId
     const fetchApplicationDetails = async () => {
       try {
-        const token = localStorage.getItem('token')
-        const response = await fetch(`http://localhost:3001/applications/${applicationId}`, {
+        const token = localStorage.getItem('employerToken')
+        const response = await fetch(`${apiUrl}/employer/jobs-applications/${applicationId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -27,7 +27,9 @@ const FullApplicationDetailsPage = () => {
           console.log('applicationDetails', data)
           setApplicationDetails(data)
         } else {
-          console.error('Error fetching application details:', response.statusText)
+          const data = await response.json()
+
+          throw new Error('Error fetching application details:', data.error)
         }
       } catch (error) {
         console.error('Error fetching application details:', error.message)

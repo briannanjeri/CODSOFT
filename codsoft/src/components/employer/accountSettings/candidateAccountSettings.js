@@ -12,6 +12,7 @@ export const CandidateAccountSettings = () => {
     gender: candidateProfile.gender,
     nationality: candidateProfile.nationality,
   })
+  const apiUrl = process.env.REACT_APP_API_URL
 
   useEffect(() => {
     setProfileData({
@@ -39,7 +40,7 @@ export const CandidateAccountSettings = () => {
         return
       }
 
-      const response = await fetch('http://localhost:3001/updateCandidateProfile', {
+      const response = await fetch(`${apiUrl}/updateCandidateProfile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

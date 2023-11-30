@@ -11,11 +11,12 @@ export const PostedJobDetail = () => {
   const handleViewApplicationsClick = () => {
     navigate(`/employer/jobs/${_id}/applications`)
   }
+  const apiUrl = process.env.REACT_APP_API_URL
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/jobs/${_id}`)
+        const response = await fetch(`${apiUrl}/jobs/${_id}`)
         if (!response.ok) {
           const data = await response.json()
           throw new Error(data.error)
@@ -23,7 +24,6 @@ export const PostedJobDetail = () => {
 
         const data = await response.json()
 
-        // Set the job details in the state
         setJob(data)
       } catch (error) {
         console.error('Error fetching job details:', error)

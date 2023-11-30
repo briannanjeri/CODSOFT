@@ -37,13 +37,6 @@
   text-decoration: none;
 }
 
-/* .input-container  {
-  margin-top: 130px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-} */
 .input-container h2 {
   text-align: center;
   margin-right: 345px;
@@ -76,4 +69,23 @@
 }
 .input-container .switch-button:hover {
   background-color: darkslategray;
+}
+
+/*---auth-media-query--*/
+@media screen and (max-width: 600px) {
+  .input-container h2 {
+    margin-left: 60px;
+    width: 90px;
+  }
+
+  .input-container input {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+
+  .input-container button {
+    width: 90%; /* Make the button full-width */
+    margin: auto;
+  }
 }

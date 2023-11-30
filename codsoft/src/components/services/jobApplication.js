@@ -2,8 +2,9 @@ export async function applyForJob(values, file, jobId, url, setUrl, setErrorMess
   console.log('applyData', values)
   try {
     const token = localStorage.getItem('token')
+    const apiUrl = process.env.REACT_APP_API_URL
 
-    const apiUrl = `http://localhost:3001/jobs/${jobId}/apply`
+    const baseUrl = `${apiUrl}/jobs/${jobId}/apply`
 
     const cloudData = new FormData()
     cloudData.append('file', file)
@@ -32,7 +33,7 @@ export async function applyForJob(values, file, jobId, url, setUrl, setErrorMess
     for (let [key, value] of formData.entries()) {
       console.log(key, value)
     }
-    const response = await fetch(apiUrl, {
+    const response = await fetch(baseUrl, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`, // Include the token in the Authorization header

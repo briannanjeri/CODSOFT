@@ -32,7 +32,6 @@ const validationSchema = yup.object({
     .oneOf([yup.ref('password'), null], 'Passwords must match')
     .required('Confirm password is required'),
 })
-// ... (Previous code)
 
 const handleSubmit = async values => {
   console.log('values', values)
@@ -45,7 +44,7 @@ export const EmployerRegisterForm = ({ onFormSwitch }) => {
       <header className="header">
         <nav className="secondary-nav">
           <ul>
-            <li className="header-title">{/* <a href="#">Chat App</a> */}</li>
+            <li className="header-title"></li>
             <li className="header-login">
               <button onClick={() => onFormSwitch('login')}>Login</button>
             </li>

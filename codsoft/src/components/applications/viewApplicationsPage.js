@@ -6,14 +6,15 @@ const ViewApplicationsPage = () => {
   const [applications, setApplications] = useState([])
   console.log('applications', applications)
   const { _id } = useParams()
+  const apiUrl = process.env.REACT_APP_API_URL
 
   useEffect(() => {
     // Fetch job applications when the component mounts
     const fetchApplications = async () => {
       try {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem('employerToken')
 
-        const response = await fetch(`http://localhost:3001/jobs/${_id}/applications`, {
+        const response = await fetch(`${apiUrl}/jobs/${_id}/applications`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -48,7 +49,7 @@ const ViewApplicationsPage = () => {
             <p>Cover Letter: {application.coverLetter}</p>
             <p>Additional Information: {application.additionalInfo}</p>
             {/* Add more details as needed */}
-            <Link to={`/applications/${application.applicationId}`}>
+            <Link to={`/employer/jobs-applications/${application.applicationId}`}>
               <button>View Full Details</button>
             </Link>
           </div>

@@ -5,6 +5,7 @@ import './style.css'
 export const AccountSettings = () => {
   const { employerProfile, setEmployerProfile } = useEmployerProfile()
   const [edit, setEdit] = useState(false)
+  const apiUrl = process.env.REACT_APP_API_URL
 
   const [profileData, setProfileData] = useState({
     firstName: employerProfile.firstName,
@@ -54,7 +55,7 @@ export const AccountSettings = () => {
         alert('no changes made')
         return
       }
-      const response = await fetch(' http://localhost:3001/updateProfile', {
+      const response = await fetch(`${apiUrl}/updateProfile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

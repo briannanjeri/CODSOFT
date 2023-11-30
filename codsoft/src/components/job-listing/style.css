@@ -17,3 +17,25 @@
   margin: auto;
   margin-top: 25px;
 }
+
+/*--job-listing-media-query--*/
+@media screen and (max-width: 600px) {
+  .job-listing-container {
+    margin: 5px 10px;
+  }
+
+  .job-listing-hero-area,
+  .job-listing-title {
+    padding: 0%;
+    width: 95%;
+    margin: 10px auto;
+  }
+  .job-listing-hero-area h1,
+  h2 {
+    font-size: 18px;
+  }
+  .job-listing-title {
+    max-width: none;
+    font-size: 18px;
+  }
+}

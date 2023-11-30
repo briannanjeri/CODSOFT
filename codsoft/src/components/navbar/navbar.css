@@ -79,7 +79,6 @@ nav li {
 .dropdown-content span a {
   cursor: pointer;
   text-decoration: none;
-  /* Use either no quotes or double quotes for property values */
 }
 .dropdown-content span :hover {
   color: #3498db;
@@ -99,4 +98,90 @@ nav li {
 
 .nav-links a:hover {
   text-decoration: underline;
+}
+
+.menu-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50px;
+  height: 100%;
+  cursor: pointer;
+}
+.menu-icon img {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50px;
+  height: 100%;
+  cursor: pointer;
+}
+.nav-logo-and-auth-options {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+/*navbar media query*/
+
+@media screen and (min-width: 768px) {
+  .menu-icon {
+    display: none;
+  }
+
+  .show {
+    display: none;
+  }
+
+  .empty {
+    display: none;
+  }
+  .dropdown {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-icon {
+    position: fixed;
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    color: black;
+    right: 20px;
+    z-index: 1;
+  }
+
+  .navbar {
+    padding: 0;
+  }
+
+  .navbar .logo {
+    margin-left: 1rem;
+  }
+
+  .show {
+    display: block;
+    position: absolute;
+    top: 50px;
+    color: #fff;
+    background: black;
+    right: 10px;
+    transition: all 0.5s ease-in-out;
+    height: 150px;
+    z-index: 1;
+  }
+
+  .show ul li {
+    padding: 3px;
+    padding-right: 10px;
+    font-size: 20px;
+    color: #fff;
+  }
+  .show ul li a {
+    color: #fff;
+  }
 }

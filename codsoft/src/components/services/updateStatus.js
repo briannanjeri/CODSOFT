@@ -1,9 +1,11 @@
 // Example frontend code using fetch
 export const updateApplicationStatus = async (applicationId, status, applicationDetails, setApplicationDetails) => {
   console.log('status', status)
+  const apiUrl = process.env.REACT_APP_API_URL
+
   try {
     const token = localStorage.getItem('token')
-    const response = await fetch(`http://localhost:3001/applications/${applicationId}/status`, {
+    const response = await fetch(`${apiUrl}/applications/${applicationId}/status`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

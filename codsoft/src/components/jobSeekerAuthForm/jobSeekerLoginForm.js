@@ -7,6 +7,7 @@ export const JobSeekerLoginForm = ({ onFormSwitch }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
+  const apiUrl = process.env.REACT_APP_API_URL
 
   const handleLogin = async e => {
     e.preventDefault()
@@ -18,7 +19,7 @@ export const JobSeekerLoginForm = ({ onFormSwitch }) => {
       }
 
       // Make the API request to handle login
-      const response = await fetch('http://localhost:3001/candidate/login', {
+      const response = await fetch(`${apiUrl}/candidate/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

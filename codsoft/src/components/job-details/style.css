@@ -19,9 +19,6 @@
 }
 
 .top-applyButton {
-}
-
-.top-applyButton {
   width: 200px;
   padding: 10px 15px;
   border: 1px solid black;
@@ -35,16 +32,8 @@
   right: 150px;
 }
 
-.bottom-applyButton {
-  width: 200px;
-  padding: 10px 15px;
-  border: 1px solid black;
-  border-radius: 10px;
-  transition: 1s ease-in-out;
-  position: relative;
-  background-color: #007bff;
-  color: #000000;
-  margin: 20px 100px;
+.top-viewApplicationsButton {
+  background-color: rgb(104, 214, 104);
 }
 
 /* .register-button:hover::before {
@@ -65,3 +54,20 @@
     background-color: #2436db;
     z-index: 1;
 } */
+
+/*--job-details-media-query--*/
+@media screen and (max-width: 600px) {
+  .job-details-container {
+    padding: 20px;
+  }
+  .job-details-title {
+    font-size: 20px;
+  }
+  .top-applyButton {
+    width: 100%;
+    max-width: 200px;
+    position: static;
+
+    margin-top: 20px;
+  }
+}

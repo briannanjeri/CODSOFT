@@ -1,11 +1,13 @@
 // candidateProfileContext.js
 
 export const updateCandidateProfile = async profileData => {
+  const apiUrl = process.env.REACT_APP_API_URL
+
   try {
     const token = localStorage.getItem('token')
 
     // Send request to update candidate profile
-    const response = await fetch('http://localhost:3001/updateCandidateProfile', {
+    const response = await fetch(`${apiUrl}/updateCandidateProfile`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -19,7 +21,6 @@ export const updateCandidateProfile = async profileData => {
       throw new Error(data.error)
     }
 
-    // Assuming the response contains the updated candidateProfile
     const updatedProfile = await response.json()
     console.log('updatedProfile', updatedProfile)
     return updatedProfile
