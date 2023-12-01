@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import React from 'react'
 import { useJobPostingContext } from '../employer/job-post/jobPostingContext'
 import './style.css'
 

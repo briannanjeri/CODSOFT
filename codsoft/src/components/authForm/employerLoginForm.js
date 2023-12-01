@@ -51,7 +51,7 @@ export const EmployerLoginForm = ({ onFormSwitch }) => {
       <header className="header">
         <nav className="secondary-nav">
           <ul>
-            <li className="header-title">{/* <a href="#">Chat App</a> */}</li>
+            <li className="header-title"></li>
             <li className="header-login">
               <button onClick={() => onFormSwitch('register')}>register</button>
             </li>

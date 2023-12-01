@@ -45,10 +45,13 @@ const ViewApplicationsPage = () => {
           <div key={application.applicationId}>
             <h3>{application.applicantName}</h3>
             <p>Contact Information: {application.contactInformation}</p>
-            <p>Resume: {application.resume}</p>
-            <p>Cover Letter: {application.coverLetter}</p>
+            <p>Resume: 
+            <Link>
+            {application.resume}
+            </Link>
+            </p>
+            <p>Cover Letter:{application.coverLetter}</p>
             <p>Additional Information: {application.additionalInfo}</p>
-            {/* Add more details as needed */}
             <Link to={`/employer/jobs-applications/${application.applicationId}`}>
               <button>View Full Details</button>
             </Link>
