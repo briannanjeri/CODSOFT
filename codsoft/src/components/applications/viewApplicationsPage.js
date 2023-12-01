@@ -43,6 +43,7 @@ const ViewApplicationsPage = () => {
       <div>
         {applications.map(application => (
           <div key={application.applicationId}>
+            <h2>{application.title}</h2>
             <h3>{application.applicantName}</h3>
             <p>Contact Information: {application.contactInformation}</p>
             <p>Resume: 
