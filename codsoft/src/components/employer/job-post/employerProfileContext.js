@@ -17,7 +17,7 @@ export const EmployerProfileProvider = ({ children }) => {
           return;
         }
 
-        const response = await fetch('http://localhost:3001/employer/profile', {
+        const response = await fetch(`${apiUrl}/employer/profile`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
