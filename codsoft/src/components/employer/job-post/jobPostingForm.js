@@ -19,6 +19,7 @@ const validationSchema = yup.object({
   salary: yup.string().required("Salary is required"),
   applicationDeadline: yup.date().required("Application Deadline is required"),
 });
+  const apiUrl = process.env.REACT_APP_API_URL;
 
 const EmployerJobPostingForm = () => {
   const initialValues = {
@@ -57,7 +58,7 @@ const EmployerJobPostingForm = () => {
 
       // Make the API request
       const token = localStorage.getItem("employerToken");
-      const response = await fetch("http://localhost:3001/jobPosting", {
+      const response = await fetch(`${apiUrl}/jobPosting`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

@@ -39,7 +39,7 @@ export const JobSeekerLoginForm = ({ onFormSwitch }) => {
           navigate(`/jobs/${jobId}/apply`);
           localStorage.removeItem("pendingApplication");
         } else {
-          navigate("/jobseeker");
+          navigate("/");
         }
         console.log("Login successful");
         setEmail("");

@@ -6,6 +6,8 @@ const apiUrl = process.env.REACT_APP_API_URL;
 
 export const EmployerProfileProvider = ({ children }) => {
   const [employerProfile, setEmployerProfile] = useState(null);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
@@ -15,7 +17,7 @@ export const EmployerProfileProvider = ({ children }) => {
           return;
         }
 
-        const response = await fetch(`${apiUrl}/employer/profile`, {
+        const response = await fetch('http://localhost:3001/employer/profile', {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -32,12 +34,21 @@ export const EmployerProfileProvider = ({ children }) => {
         setEmployerProfile(data);
       } catch (error) {
         console.error("Error fetching employer profile data:", error);
+      }finally{
+        setLoading(false)
       }
     };
 
     fetchProfileData();
   }, []);
 
+  if (loading) {
+    return <div >Loading...</div>;
+  }
+
+  if (!employerProfile) {
+    return <div >Error: Employer profile not found</div>;
+  }
   return (
     <EmployerProfileContext.Provider
       value={{ employerProfile, setEmployerProfile }}

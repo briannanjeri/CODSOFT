@@ -10,10 +10,10 @@ const HeroSection = () => {
     <div className="hero-container">
       <div className="hero-details">
         <div className="company-details">
-          <h2>{employerProfile.companyName}</h2>
+          <h2>{employerProfile.companyName!=null && employerProfile.companyName}</h2>
         </div>
         <div className="welcome-message">
-          <h1>{`welcome ${employerProfile.firstName} ${employerProfile.lastName} `}</h1>
+          <h1>{`welcome ${ employerProfile.firstName!=null && employerProfile.firstName} ${ employerProfile.lastName!=null &&  employerProfile?.lastName} `}</h1>
           <h2>Manage Your Job Listings and Applications.</h2>
         </div>
       </div>
