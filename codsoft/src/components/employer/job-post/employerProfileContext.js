@@ -46,9 +46,9 @@ export const EmployerProfileProvider = ({ children }) => {
     return <div >Loading...</div>;
   }
 
-  if (!employerProfile) {
-    return <div >Error: Employer profile not found</div>;
-  }
+  // if (!employerProfile) {
+  //   return <div >Error: Employer profile not found</div>;
+  // }
   return (
     <EmployerProfileContext.Provider
       value={{ employerProfile, setEmployerProfile }}
