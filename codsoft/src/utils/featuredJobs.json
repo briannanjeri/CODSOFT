@@ -22,7 +22,12 @@
       "jobType": "Remote",
       "description": "Join MarketingPro's team and help drive digital marketing strategies for our clients. This role offers a flexible remote work arrangement.",
       "qualifications": "Bachelor's degree in Marketing or related field, 2+ years of digital marketing experience, SEO and social media expertise.",
-      "skills": ["Digital Marketing", "SEO", "Social Media", "Content Marketing"],
+      "skills": [
+        "Digital Marketing",
+        "SEO",
+        "Social Media",
+        "Content Marketing"
+      ],
       "salary": "$60,000 - $80,000 per year",
       "applicationDeadline": "2023-12-20"
     },
@@ -87,7 +92,12 @@
       "jobType": "Commission-Based",
       "description": "SalesPro is expanding its sales team. Join us as a Sales Representative and play a key role in driving revenue growth.",
       "qualifications": "High school diploma or equivalent, proven sales experience, excellent communication and negotiation skills.",
-      "skills": ["Sales", "Negotiation", "Communication", "Customer Relationship"],
+      "skills": [
+        "Sales",
+        "Negotiation",
+        "Communication",
+        "Customer Relationship"
+      ],
       "salary": "Commission-Based",
       "applicationDeadline": "2023-12-30"
     },
@@ -100,7 +110,12 @@
       "jobType": "Full-Time",
       "description": "HR Solutions is hiring an experienced Human Resources Manager to lead HR initiatives and foster a positive work environment.",
       "qualifications": "Bachelor's degree in Human Resources or related field, HR certification, 5+ years of HR management experience.",
-      "skills": ["Human Resources", "Employee Relations", "Recruitment", "HR Policies"],
+      "skills": [
+        "Human Resources",
+        "Employee Relations",
+        "Recruitment",
+        "HR Policies"
+      ],
       "salary": "$90,000 - $110,000 per year",
       "applicationDeadline": "2024-01-02"
     }

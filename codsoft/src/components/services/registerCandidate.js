@@ -1,4 +1,8 @@
-import { validateEmail, validatePassword, validateUsername } from '../../utils/validateInputs'
+import {
+  validateEmail,
+  validatePassword,
+  validateUsername,
+} from "../../utils/validateInputs";
 
 export const RegisterCandidate = async (
   e,
@@ -8,44 +12,42 @@ export const RegisterCandidate = async (
   setEmailError,
   setPasswordError,
   setUsernameError,
-  onFormSwitch
+  onFormSwitch,
 ) => {
-  e.preventDefault()
-  console.log('function called')
+  e.preventDefault();
   try {
-    const isUsernameValid = validateUsername(username, setUsernameError)
-    const isEmailValid = validateEmail(email, setEmailError)
-    // const isPasswordValid = validatePassword(password, setPasswordError)
-
+    const isUsernameValid = validateUsername(username, setUsernameError);
+    const isEmailValid = validateEmail(email, setEmailError);
+    const isPasswordValid = validatePassword(password, setPasswordError);
     // If any validation fails, stop the registration process
-    if (!isUsernameValid || !isEmailValid) {
-      console.log('validation failed')
-      return
+    if (!isUsernameValid || !isEmailValid || !isPasswordValid) {
+      console.log("validation failed");
+      return;
     }
 
     const registrationData = {
       username,
       email,
       password,
-    }
-    const apiUrl = process.env.REACT_APP_API_URL
+    };
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     // Make the API request to register the job seeker
     const response = await fetch(`${apiUrl}/candidate/register`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(registrationData),
-    })
+    });
 
     if (response.ok) {
-      console.log('Job seeker registered successfully')
-      onFormSwitch('login')
+      alert("Job seeker registered successfully");
+      onFormSwitch("login");
     } else {
-      console.error('Job seeker registration failed')
+      console.error("Job seeker registration failed");
     }
   } catch (error) {
-    console.error('Error during job seeker registration:', error)
+    console.error("Error during job seeker registration:", error);
   }
-}
+};

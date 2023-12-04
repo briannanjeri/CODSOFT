@@ -1,7 +1,7 @@
-import React from 'react'
-import HeroArea from './hero-area'
-import { SearchInput } from '../searchInput/searchInput'
-import { FeaturedJobs } from './featuredJobs'
+import React from "react";
+import HeroArea from "./hero-area";
+import { SearchInput } from "../searchInput/searchInput";
+import { FeaturedJobs } from "./featuredJobs";
 
 export const Home = () => {
   return (
@@ -10,5 +10,5 @@ export const Home = () => {
       <SearchInput isFeatured={true} />
       <FeaturedJobs />
     </div>
-  )
-}
+  );
+};

@@ -1,58 +1,56 @@
-import React, { useState, useEffect } from 'react'
-import './style.css'
-import { useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import "./style.css";
+import { useNavigate } from "react-router-dom";
 export const JobDetailsJobSeeker = ({ jobId }) => {
-  const navigate = useNavigate()
-  const apiUrl = process.env.REACT_APP_API_URL
+  const navigate = useNavigate();
+  const apiUrl = process.env.REACT_APP_API_URL;
 
-  const [job, setJob] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [job, setJob] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const isLoggedIn = localStorage.getItem('token') !== null
+  const isLoggedIn = localStorage.getItem("token") !== null;
 
   const handleApplyClick = () => {
     if (!isLoggedIn) {
-      localStorage.setItem('pendingApplication', 'true')
+      localStorage.setItem("pendingApplication", "true");
     }
-    localStorage.setItem('jobId', jobId)
+    localStorage.setItem("jobId", jobId);
 
     if (isLoggedIn) {
-      navigate(`/jobs/${jobId}/apply`)
+      navigate(`/jobs/${jobId}/apply`);
     } else {
-      navigate('/jobSeeker')
+      navigate("/jobSeeker");
     }
-  }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${apiUrl}/jobs/${jobId}`)
+        const response = await fetch(`${apiUrl}/jobs/${jobId}`);
         if (!response.ok) {
-          const data = await response.json()
-          throw new Error(data.error)
+          const data = await response.json();
+          throw new Error(data.error);
         }
 
-        const data = await response.json()
-        console.log('jobdetails', data)
+        const data = await response.json();
 
-        // Set the job details in the state
-        setJob(data)
+        setJob(data);
       } catch (error) {
-        console.error('Error fetching job details:', error)
+        console.error("Error fetching job details:", error);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchData()
-  }, [jobId])
+    fetchData();
+  }, [jobId]);
 
   if (loading) {
-    return <div className="job-details-loading">Loading...</div>
+    return <div className="job-details-loading">Loading...</div>;
   }
 
   if (!job) {
-    return <div className="job-details-error">Error: Job not found</div>
+    return <div className="job-details-error">Error: Job not found</div>;
   }
 
   return (
@@ -95,5 +93,5 @@ export const JobDetailsJobSeeker = ({ jobId }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

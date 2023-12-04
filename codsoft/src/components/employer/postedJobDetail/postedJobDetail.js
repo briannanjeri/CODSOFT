@@ -1,50 +1,54 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import React from "react";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const PostedJobDetail = () => {
-  const navigate = useNavigate()
-  const { _id } = useParams()
-  const [job, setJob] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const navigate = useNavigate();
+  const { _id } = useParams();
+
+  const [job, setJob] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const handleViewApplicationsClick = () => {
-    navigate(`/employer/jobs/${_id}/applications`)
-  }
-  const apiUrl = process.env.REACT_APP_API_URL
+    navigate(`/employer/jobs/${_id}/applications`);
+  };
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${apiUrl}/jobs/${_id}`)
+        const response = await fetch(`${apiUrl}/jobs/${_id}`);
         if (!response.ok) {
-          const data = await response.json()
-          throw new Error(data.error)
+          const data = await response.json();
+          throw new Error(data.error);
         }
 
-        const data = await response.json()
+        const data = await response.json();
 
-        setJob(data)
+        setJob(data);
       } catch (error) {
-        console.error('Error fetching job details:', error)
+        console.error("Error fetching job details:", error);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    fetchData()
-  }, [_id])
+    fetchData();
+  }, [_id]);
 
   if (loading) {
-    return <div className="job-details-loading">Loading...</div>
+    return <div className="job-details-loading">Loading...</div>;
   }
 
   if (!job) {
-    return <div className="job-details-error">Error: Job not found</div>
+    return <div className="job-details-error">Error: Job not found</div>;
   }
   return (
     <div className="job-details-container">
-      <button className="top-viewApplicationsButton" onClick={handleViewApplicationsClick}>
+      <button
+        className="top-viewApplicationsButton"
+        onClick={handleViewApplicationsClick}
+      >
         View Applications
       </button>
 
@@ -82,5 +86,5 @@ export const PostedJobDetail = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

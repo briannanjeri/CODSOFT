@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 const FeaturedJob = ({ job }) => {
   return (
     <div className="job-container">
@@ -9,7 +9,7 @@ const FeaturedJob = ({ job }) => {
           {job.companyName}-{job.state}
         </p>
         <p>
-          {' '}
+          {" "}
           {job.city}-{job.location}
         </p>
 
@@ -18,7 +18,7 @@ const FeaturedJob = ({ job }) => {
         {/* <p>{job.jobDescription.slice(0,80)}<span>......</span></p> */}
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default FeaturedJob
+export default FeaturedJob;

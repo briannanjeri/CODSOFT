@@ -1,7 +1,7 @@
-import React from 'react'
-import HeroSection from './hero-section'
-import { Statistics } from './statistics'
-import { PostedJobList } from './postedJobList'
+import React from "react";
+import HeroSection from "./hero-section";
+import { Statistics } from "./statistics";
+import { PostedJobList } from "./postedJobList";
 const Dashboard = () => {
   return (
     <div>
@@ -9,7 +9,7 @@ const Dashboard = () => {
       <PostedJobList />
       {/* <Statistics /> */}
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

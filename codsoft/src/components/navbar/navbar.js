@@ -1,44 +1,48 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { NavDropDown } from '../../drop/navDropdown'
-import './navbar.css'
-import '../home/style.css'
-import { useState, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import React from "react";
+import { Link } from "react-router-dom";
+import { NavDropDown } from "../../drop/navDropdown";
+import "./navbar.css";
+import "../home/style.css";
+import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 export const Navbar = () => {
-  const [menuIconDisplay, setMenuIconDisplay] = useState('none')
+  const [menuIconDisplay, setMenuIconDisplay] = useState("none");
 
-  const [showmenu, setShowMenu] = useState(false)
+  const [showmenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
-    setShowMenu(!showmenu)
-  }
+    setShowMenu(!showmenu);
+  };
   //  const loginOptions = ['Employer', 'Jobseeker', {page:'login'}];
-  const registerOptions = ['Employer', 'Jobseeker']
-  const pagesOptions = ['FAQs', 'Privacy Policy']
-  const CandidateProfileOptions = ['Account-settings', 'Your Applications', 'LogOut']
+  const registerOptions = ["Employer", "Jobseeker"];
+  const pagesOptions = ["FAQs", "Privacy Policy"];
+  const CandidateProfileOptions = [
+    "Account-settings",
+    "Your Applications",
+    "LogOut",
+  ];
 
-  const Usertoken = localStorage.getItem('token')
+  const Usertoken = localStorage.getItem("token");
 
   useEffect(() => {
     // Function to update menuIconDisplay based on screen width
     const handleResize = () => {
-      const screenWidth = window.innerWidth
+      const screenWidth = window.innerWidth;
       if (screenWidth <= 768) {
-        setMenuIconDisplay('block')
+        setMenuIconDisplay("block");
       } else {
-        setMenuIconDisplay('none')
+        setMenuIconDisplay("none");
       }
-    }
+    };
 
     //  cleanup
-    handleResize()
-    window.addEventListener('resize', handleResize)
+    handleResize();
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div>
@@ -48,15 +52,25 @@ export const Navbar = () => {
             <div className="logo">
               <span className="letter-rm">RM</span>
               <span>Recruit</span>
-              <span>M</span>{' '}
+              <span>M</span>{" "}
             </div>
           </Link>
-          {!Usertoken && menuIconDisplay === 'block' && (
-            <NavDropDown title="Register" options={registerOptions} className="auth-link" />
-          )}{' '}
-          {Usertoken && menuIconDisplay === 'block' && (
+          {!Usertoken && menuIconDisplay === "block" && (
             <NavDropDown
-              title={<img src="/blank-profile-picture.png" alt="Profile" className="profile-image" />}
+              title="Register"
+              options={registerOptions}
+              className="auth-link"
+            />
+          )}{" "}
+          {Usertoken && menuIconDisplay === "block" && (
+            <NavDropDown
+              title={
+                <img
+                  src="/blank-profile-picture.png"
+                  alt="Profile"
+                  className="profile-image"
+                />
+              }
               options={CandidateProfileOptions}
             />
           )}
@@ -77,17 +91,25 @@ export const Navbar = () => {
             <li>About us</li>
             <li>contact us</li>
             {/* <NavDropDown title="Login" options={loginOptions} /> */}
-            {!Usertoken && <NavDropDown title="Register" options={registerOptions} />}
+            {!Usertoken && (
+              <NavDropDown title="Register" options={registerOptions} />
+            )}
             {Usertoken && (
               <NavDropDown
-                title={<img src="/blank-profile-picture.png" alt="Profile" className="profile-image" />}
+                title={
+                  <img
+                    src="/blank-profile-picture.png"
+                    alt="Profile"
+                    className="profile-image"
+                  />
+                }
                 options={CandidateProfileOptions}
               />
             )}
           </ul>
         </div>
 
-        <div className={showmenu ? 'show' : 'empty'}>
+        <div className={showmenu ? "show" : "empty"}>
           {showmenu ? (
             <ul>
               <li>
@@ -110,10 +132,10 @@ export const Navbar = () => {
               </li>
             </ul>
           ) : (
-            ''
+            ""
           )}
         </div>
       </nav>
     </div>
-  )
-}
+  );
+};

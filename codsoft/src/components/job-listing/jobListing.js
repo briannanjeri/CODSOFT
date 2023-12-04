@@ -1,14 +1,13 @@
-import React from 'react'
-import { SearchInput } from '../searchInput/searchInput'
-import joblistings from '../../utils/featuredJobs.json'
-import FeaturedJob from '../home/featuredJob'
-import { useJobPostingContext } from '../employer/job-post/jobPostingContext'
-import './style.css'
+import React from "react";
+import { SearchInput } from "../searchInput/searchInput";
+import joblistings from "../../utils/featuredJobs.json";
+import FeaturedJob from "../home/featuredJob";
+import { useJobPostingContext } from "../employer/job-post/jobPostingContext";
+import "./style.css";
 
 export const JobListing = () => {
-  const jobs = joblistings.featuredJobs
-  const { jobPostings, setJobPostings } = useJobPostingContext()
-  console.log('jobs', jobPostings)
+  const jobs = joblistings.featuredJobs;
+  const { jobPostings, setJobPostings } = useJobPostingContext();
 
   return (
     <div className="job-listing-container">
@@ -23,12 +22,12 @@ export const JobListing = () => {
       </div>
       <h1 className="job-listing-title">Browse Exciting Job Opportunities</h1>
       <div className="featuredJobs-container">
-        {jobPostings.slice(0, 4).map(job => (
+        {jobPostings.slice(0, 4).map((job) => (
           <div key={job.id} className="job-card">
             <FeaturedJob job={job} />
           </div>
         ))}
       </div>
     </div>
-  )
-}
+  );
+};

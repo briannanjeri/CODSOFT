@@ -1,39 +1,39 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { EmployerHeaderDropdown } from '../../../drop/employerHeaderDropdown'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-import './style.css'
+import React from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { EmployerHeaderDropdown } from "../../../drop/employerHeaderDropdown";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import "./style.css";
 
 export const Header = () => {
-  const [showmenu, setShowMenu] = useState(false)
-  const [menuIconDisplay, setMenuIconDisplay] = useState('none')
-
+  const [showmenu, setShowMenu] = useState(false);
+  const [menuIconDisplay, setMenuIconDisplay] = useState("none");
+  const applicationId = localStorage.getItem("applicationId");
   const toggleMenu = () => {
-    setShowMenu(!showmenu)
-  }
-  const employerToken = localStorage.getItem('employerToken')
-  const profile = ['Account Settings', 'LogOut']
+    setShowMenu(!showmenu);
+  };
+  const employerToken = localStorage.getItem("employerToken");
+  const profile = ["Account Settings", "LogOut"];
 
   useEffect(() => {
     // Function to update menuIconDisplay based on screen width
     const handleResize = () => {
-      const screenWidth = window.innerWidth
+      const screenWidth = window.innerWidth;
       if (screenWidth <= 768) {
-        setMenuIconDisplay('block')
+        setMenuIconDisplay("block");
       } else {
-        setMenuIconDisplay('none')
+        setMenuIconDisplay("none");
       }
-    }
+    };
 
     //  cleanup
-    handleResize()
-    window.addEventListener('resize', handleResize)
+    handleResize();
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div>
@@ -43,12 +43,18 @@ export const Header = () => {
             <div className="logo">
               <span className="letter-rm">RM</span>
               <span>Recruit</span>
-              <span>M</span>{' '}
+              <span>M</span>{" "}
             </div>
           </Link>
-          {employerToken && menuIconDisplay === 'block' && (
+          {employerToken && menuIconDisplay === "block" && (
             <EmployerHeaderDropdown
-              title={<img src="/blank-profile-picture.png" alt="Profile" className="profile-image" />}
+              title={
+                <img
+                  src="/blank-profile-picture.png"
+                  alt="Profile"
+                  className="profile-image"
+                />
+              }
               options={profile}
             />
           )}
@@ -64,15 +70,23 @@ export const Header = () => {
             <Link to="/employer/jobPostings">
               <li>Job Posting</li>
             </Link>
-            <li>Application Management</li>
+            <Link to="/employer/jobs/all-Applications">
+              <li>Application Management</li>
+            </Link>
             <EmployerHeaderDropdown
-              title={<img src="/blank-profile-picture.png" alt="Profile" className="profile-image" />}
+              title={
+                <img
+                  src="/blank-profile-picture.png"
+                  alt="Profile"
+                  className="profile-image"
+                />
+              }
               options={profile}
             />
           </ul>
         </div>
 
-        <div className={showmenu ? 'show' : 'empty'}>
+        <div className={showmenu ? "show" : "empty"}>
           {showmenu ? (
             <ul>
               <li>
@@ -84,16 +98,16 @@ export const Header = () => {
                 <li>Job Posting</li>
               </Link>
               <li>
-                <Link to="#" onClick={showmenu}>
+                <Link to="/employer/jobs/all-applications" onClick={showmenu}>
                   Application Management
                 </Link>
               </li>
             </ul>
           ) : (
-            ''
+            ""
           )}
         </div>
       </nav>
     </div>
-  )
-}
+  );
+};

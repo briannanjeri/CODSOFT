@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export const Statistics = () => {
   return (
@@ -18,5 +18,5 @@ export const Statistics = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

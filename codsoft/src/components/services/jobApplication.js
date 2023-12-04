@@ -1,59 +1,49 @@
-export async function applyForJob(values, file, jobId, url, setUrl, setErrorMessage) {
-  console.log('applyData', values)
+export async function applyForJob(values, file, jobId, setErrorMessage) {
   try {
-    const token = localStorage.getItem('token')
-    const apiUrl = process.env.REACT_APP_API_URL
+    const token = localStorage.getItem("token");
+    const apiUrl = process.env.REACT_APP_API_URL;
 
-    const baseUrl = `${apiUrl}/jobs/${jobId}/apply`
+    // const baseUrl = `${apiUrl}/jobs/${jobId}/apply`
 
-    const cloudData = new FormData()
-    cloudData.append('file', file)
-    cloudData.append('upload_preset', 'ssqdx6b5')
-    cloudData.append('cloud_name', 'djl1ysnon')
-    const cloudinaryResponse = await fetch('https://api.cloudinary.com/v1_1/djl1ysnon/image/upload', {
-      method: 'POST',
-      body: cloudData,
-    })
-    if (!cloudinaryResponse.ok) {
-      const cloudinaryData = await cloudinaryResponse.json()
-      throw new Error(cloudinaryData.error)
-    }
-
-    const cloudinaryJsonData = await cloudinaryResponse.json()
-    setUrl(cloudinaryJsonData.url)
-    console.log('Cloudinary response:', cloudinaryJsonData)
-
-    const formData = new FormData()
-    // Append all values to the FormData object
-    formData.append('resume', cloudinaryJsonData.url)
-    Object.entries(values).forEach(([key, value]) => {
-      formData.append(key, value)
-    })
-
-    for (let [key, value] of formData.entries()) {
-      console.log(key, value)
-    }
-    const response = await fetch(baseUrl, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+    const cloudData = new FormData();
+    cloudData.append("file", file);
+    cloudData.append("upload_preset", "ssqdx6b5");
+    cloudData.append("cloud_name", "djl1ysnon");
+    const cloudinaryResponse = await fetch(
+      "https://api.cloudinary.com/v1_1/djl1ysnon/image/upload",
+      {
+        method: "POST",
+        body: cloudData,
       },
-      body: formData,
-    })
+    );
+    if (!cloudinaryResponse.ok) {
+      const cloudinaryData = await cloudinaryResponse.json();
+      throw new Error(cloudinaryData.error);
+    }
+
+    const cloudinaryJsonData = await cloudinaryResponse.json();
+
+    const updatedValues = { ...values, resume: cloudinaryJsonData.url };
+
+    const response = await fetch(`${apiUrl}/jobs/${jobId}/apply`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`, 
+      },
+      body: JSON.stringify(updatedValues),
+    });
 
     if (!response.ok) {
-      const data = await response.json()
-      setErrorMessage(data.error)
-      console.log('applicationdata', data)
-
-      throw new Error(data.error)
+      const data = await response.json();
+      setErrorMessage(data.error);
+      throw new Error(data.error);
     }
 
-    const data = await response.json()
-    setErrorMessage(null)
-    console.log('Job application successful:', data)
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error('Error applying for the job:', error)
-    setErrorMessage(error.message)
+    console.error("Error applying for the job:", error);
+    setErrorMessage(error.message);
   }
 }

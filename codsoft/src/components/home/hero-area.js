@@ -1,5 +1,5 @@
-import React from 'react'
-import './style.css'
+import React from "react";
+import "./style.css";
 
 const HeroArea = () => {
   return (
@@ -14,7 +14,7 @@ const HeroArea = () => {
       </div>
       <img src="/jobimage.jpg" alt="hero-pic" />
     </div>
-  )
-}
+  );
+};
 
-export default HeroArea
+export default HeroArea;

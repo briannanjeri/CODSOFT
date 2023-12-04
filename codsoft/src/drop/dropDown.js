@@ -1,12 +1,12 @@
-import React from 'react'
-import { useState } from 'react'
+import React from "react";
+import { useState } from "react";
 
 export const DropDown = ({ title, options }) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
   return (
     <div className="dropdown">
       <div className="dropdown-header">{title}</div>
@@ -17,5 +17,5 @@ export const DropDown = ({ title, options }) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};

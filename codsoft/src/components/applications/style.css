@@ -1,0 +1,96 @@
+.job-applications-container {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.job-application-card {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+.resume-link {
+  color: blue;
+  text-decoration: none;
+  word-break: break-all;
+  max-width: 100%;
+  overflow: hidden;
+  display: inline-block;
+}
+.application-details-container {
+  width: 80%;
+  margin: 20px;
+}
+.application-details-container h1 {
+  font-size: 20px;
+}
+.details-section {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.detail-row {
+  margin-bottom: 15px;
+}
+text {
+  width: 200px;
+}
+strong {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.multiline-text {
+  white-space: pre-line;
+}
+
+.application-actions-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.action-button {
+  background-color: #3498db;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/*--fullApplication media-query--*/
+@media screen and (max-width: 600px) {
+  .application-details-container {
+    width: 80%;
+    margin: 10px;
+  }
+
+  .details-section {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .job-applications-container h1 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+  .application-details-container h1 {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .application-actions-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .action-button {
+    margin-top: 10px;
+  }
+}

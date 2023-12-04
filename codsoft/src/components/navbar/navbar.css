@@ -44,14 +44,14 @@
 }
 
 .letter-rm::before {
-  content: 'R';
+  content: "R";
   position: absolute;
   left: -0.25rem;
   color: blue;
 }
 
 .letter-rm::after {
-  content: 'M';
+  content: "M";
   position: absolute;
   right: -0.25rem;
   color: green;

@@ -1,22 +1,22 @@
-import React from 'react'
-import { useState } from 'react'
-import { EmployerLoginForm } from './employerLoginForm'
-import { EmployerRegisterForm } from './employerRegisterForm'
+import React from "react";
+import { useState } from "react";
+import { EmployerLoginForm } from "./employerLoginForm";
+import { EmployerRegisterForm } from "./employerRegisterForm";
 
 export const Index = () => {
-  const [currentform, setCurrentForm] = useState('login')
+  const [currentform, setCurrentForm] = useState("login");
 
-  const toggleForm = formName => {
-    setCurrentForm(formName)
-  }
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  };
 
   return (
     <div>
-      {currentform === 'login' ? (
+      {currentform === "login" ? (
         <EmployerLoginForm onFormSwitch={toggleForm} />
       ) : (
         <EmployerRegisterForm onFormSwitch={toggleForm} />
       )}
     </div>
-  )
-}
+  );
+};

@@ -1,59 +1,56 @@
-import React from 'react'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { saveTokenToLocalStorage } from '../services/saveUserToken'
+import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { saveTokenToLocalStorage } from "../services/saveUserToken";
 // import './style.css'
 export const JobSeekerLoginForm = ({ onFormSwitch }) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const navigate = useNavigate()
-  const apiUrl = process.env.REACT_APP_API_URL
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const apiUrl = process.env.REACT_APP_API_URL;
 
-  const handleLogin = async e => {
-    e.preventDefault()
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
     try {
       const loginData = {
         email,
         password,
-      }
+      };
 
       // Make the API request to handle login
       const response = await fetch(`${apiUrl}/candidate/login`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(loginData),
-      })
+      });
 
       if (response.ok) {
-        const data = await response.json()
-        saveTokenToLocalStorage(data.token)
+        const data = await response.json();
+        saveTokenToLocalStorage(data.token);
         //check for pending application
-        const pendingApplication = localStorage.getItem('pendingApplication')
-        const jobId = localStorage.getItem('jobId')
+        const pendingApplication = localStorage.getItem("pendingApplication");
+        const jobId = localStorage.getItem("jobId");
 
         if (pendingApplication) {
-          // Clear the flag
-
           // Redirect the user to the job application page
-          navigate(`/jobs/${jobId}/apply`)
-          localStorage.removeItem('pendingApplication')
+          navigate(`/jobs/${jobId}/apply`);
+          localStorage.removeItem("pendingApplication");
         } else {
-          // Redirect the user to the dashboard or the desired page
-          navigate('/employer/dashboard')
+          navigate("/jobseeker");
         }
-        console.log('Login successful')
-        setEmail('')
-        setPassword('')
+        console.log("Login successful");
+        setEmail("");
+        setPassword("");
       } else {
-        console.error('Login failed')
+        console.error("Login failed");
       }
     } catch (error) {
-      console.error('Error during login:', error)
+      console.error("Error during login:", error);
     }
-  }
+  };
   return (
     <div className="auth-container">
       <header className="header">
@@ -61,7 +58,7 @@ export const JobSeekerLoginForm = ({ onFormSwitch }) => {
           <ul>
             <li className="header-title"></li>
             <li className="header-login">
-              <button onClick={() => onFormSwitch('register')}>register</button>
+              <button onClick={() => onFormSwitch("register")}>register</button>
             </li>
           </ul>
         </nav>
@@ -70,22 +67,31 @@ export const JobSeekerLoginForm = ({ onFormSwitch }) => {
         <form className="employer-form">
           <h2>Log In</h2>
 
-          <input type="email" value={email} name="email" placeholder="email" onChange={e => setEmail(e.target.value)} />
+          <input
+            type="email"
+            value={email}
+            name="email"
+            placeholder="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <input
             type="password"
             value={password}
             name="password"
             placeholder="password"
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="login-button" onClick={e => handleLogin(e)}>
+          <button className="login-button" onClick={(e) => handleLogin(e)}>
             Sign In
           </button>
-          <button onClick={() => onFormSwitch('register')} className="switch-button">
+          <button
+            onClick={() => onFormSwitch("register")}
+            className="switch-button"
+          >
             Not registered? create an Account
           </button>
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
