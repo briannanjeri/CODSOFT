@@ -2,9 +2,12 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 const CandidateProfileContext = createContext();
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const CandidateProfileProvider = ({ children }) => {
   const [candidateProfile, setCandidateProfile] = useState(null);
+    const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -12,7 +15,7 @@ export const CandidateProfileProvider = ({ children }) => {
     const fetchCandidateProfile = async () => {
       try {
         const response = await fetch(
-          "http://localhost:3001/candidate/profile",
+          `${apiUrl}/candidate/profile`,
           {
             method: "GET",
             headers: {
@@ -31,13 +34,21 @@ export const CandidateProfileProvider = ({ children }) => {
         setCandidateProfile(profileData);
       } catch (error) {
         console.error("Error fetching candidate profile:", error);
+      }finally{
+        setLoading(false)
       }
     };
     if (token) {
       fetchCandidateProfile();
     }
   }, []);
+ if (loading) {
+    return <div >Loading...</div>;
+  }
 
+  if (!candidateProfile) {
+    return <div >Error: candidate profile not found</div>;
+  }
   return (
     <CandidateProfileContext.Provider
       value={{ candidateProfile, setCandidateProfile }}
