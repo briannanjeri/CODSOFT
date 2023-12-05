@@ -83,23 +83,23 @@ export const AccountSettings = () => {
       {!edit ? (
         <div className="profile-data">
           <p>
-            <strong>First Name:</strong> {profileData.firstName}
+            <strong>First Name:</strong> {profileData?.firstName}
           </p>
           <p>
-            <strong>Middle Name:</strong> {profileData.middleName}
+            <strong>Middle Name:</strong> {profileData?.middleName}
           </p>
           <p>
-            <strong>Last Name:</strong> {profileData.lastName}
+            <strong>Last Name:</strong> {profileData?.lastName}
           </p>
           <p>
-            <strong>Company Name:</strong> {profileData.companyName}
+            <strong>Company Name:</strong> {profileData?.companyName}
           </p>
           <p>
-            <strong>Company Website:</strong> {profileData.companyWebsite}
+            <strong>Company Website:</strong> {profileData?.companyWebsite}
           </p>
           <p>
             <strong>Company Description:</strong>{" "}
-            {profileData.companyDescription}
+            {profileData?.companyDescription}
           </p>
           <p>
             <strong>Phone:</strong> {profileData.phone}

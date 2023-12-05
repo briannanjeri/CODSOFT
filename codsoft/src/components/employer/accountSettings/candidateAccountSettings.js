@@ -6,21 +6,21 @@ export const CandidateAccountSettings = () => {
   const { candidateProfile, setCandidateProfile } = useCandidateProfile();
   const [edit, setEdit] = useState(false);
   const [profileData, setProfileData] = useState({
-    firstName: candidateProfile.firstName,
-    lastName: candidateProfile.lastName,
-    dateOfBirth: candidateProfile.dateOfBirth,
-    gender: candidateProfile.gender,
-    nationality: candidateProfile.nationality,
+     firstName: candidateProfile?.firstName,
+      lastName: candidateProfile?.lastName,
+      dateOfBirth: candidateProfile?.dateOfBirth,
+      gender: candidateProfile?.gender,
+      nationality: candidateProfile?.nationality,
   });
   const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     setProfileData({
-      firstName: candidateProfile.firstName,
-      lastName: candidateProfile.lastName,
-      dateOfBirth: candidateProfile.dateOfBirth,
-      gender: candidateProfile.gender,
-      nationality: candidateProfile.nationality,
+      firstName: candidateProfile?.firstName,
+      lastName: candidateProfile?.lastName,
+      dateOfBirth: candidateProfile?.dateOfBirth,
+      gender: candidateProfile?.gender,
+      nationality: candidateProfile?.nationality,
     });
   }, [candidateProfile]);
 
@@ -32,6 +32,7 @@ export const CandidateAccountSettings = () => {
   const handleSaveChanges = async () => {
     try {
       const token = localStorage.getItem("token");
+     
       // Check if any changes have been made before sending the request
       const changesMade = Object.keys(profileData).some(
         (key) => profileData[key] !== candidateProfile[key],
@@ -41,7 +42,7 @@ export const CandidateAccountSettings = () => {
         alert("no changes made");
         return;
       }
-
+   
       const response = await fetch(`${apiUrl}/updateCandidateProfile`, {
         method: "PUT",
         headers: {
@@ -58,7 +59,7 @@ export const CandidateAccountSettings = () => {
 
       const updatedProfile = await response.json();
       setCandidateProfile(updatedProfile);
-      setEdit(false); // Disable editing mode after saving changes
+      setEdit(false); 
     } catch (error) {
       console.error("Error saving changes:", error);
     }
@@ -67,11 +68,11 @@ export const CandidateAccountSettings = () => {
   const handleCancel = () => {
     // Reset profile data to original values
     setProfileData({
-      firstName: candidateProfile.firstName,
-      lastName: candidateProfile.lastName,
-      dateOfBirth: candidateProfile.dateOfBirth,
-      gender: candidateProfile.gender,
-      nationality: candidateProfile.nationality,
+      firstName: candidateProfile?.firstName,
+      lastName: candidateProfile?.lastName,
+      dateOfBirth: candidateProfile?.dateOfBirth,
+      gender: candidateProfile?.gender,
+      nationality: candidateProfile?.nationality,
     });
 
     setEdit(false);
@@ -139,19 +140,19 @@ export const CandidateAccountSettings = () => {
       ) : (
         <div className="profile-data">
           <p>
-            <strong>First Name:</strong> {candidateProfile.firstName}
+            <strong>First Name:</strong> {candidateProfile?.firstName}
           </p>
           <p>
-            <strong>Last Name:</strong> {candidateProfile.lastName}
+            <strong>Last Name:</strong> {candidateProfile?.lastName}
           </p>
           <p>
-            <strong>Date of Birth:</strong> {candidateProfile.dateOfBirth}
+            <strong>Date of Birth:</strong> {candidateProfile?.dateOfBirth}
           </p>
           <p>
-            <strong>Gender:</strong> {candidateProfile.gender}
+            <strong>Gender:</strong> {candidateProfile?.gender}
           </p>
           <p>
-            <strong>Nationality:</strong> {candidateProfile.nationality}
+            <strong>Nationality:</strong> {candidateProfile?.nationality}
           </p>
           <button type="button" onClick={() => setEdit(true)}>
             Edit Profile

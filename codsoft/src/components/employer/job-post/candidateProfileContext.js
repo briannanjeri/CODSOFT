@@ -1,17 +1,21 @@
 // candidateProfileContext.js
 import React, { createContext, useContext, useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 const CandidateProfileContext = createContext();
 const apiUrl = process.env.REACT_APP_API_URL;
 
 export const CandidateProfileProvider = ({ children }) => {
   const [candidateProfile, setCandidateProfile] = useState(null);
     const [loading, setLoading] = useState(true);
-
+const navigate=useNavigate()
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
+  if (!token) {
+    console.log('userToken not found in local Storage')
+    return;  
+  }
     const fetchCandidateProfile = async () => {
       try {
         const response = await fetch(
@@ -34,21 +38,22 @@ export const CandidateProfileProvider = ({ children }) => {
         setCandidateProfile(profileData);
       } catch (error) {
         console.error("Error fetching candidate profile:", error);
-      }finally{
-        setLoading(false)
       }
+      // finally{
+      //   setLoading(false)
+      // }
     };
-    if (token) {
-      fetchCandidateProfile();
-    }
+    fetchCandidateProfile();
+   
+  
   }, []);
- if (loading) {
-    return <div >Loading...</div>;
-  }
+//  if (loading) {
+//     return <div >Loading...</div>;
+//   }
 
-  if (!candidateProfile) {
-    return <div >Error: candidate profile not found</div>;
-  }
+//   if (!candidateProfile) {
+//     return <div >Error: candidate profile not found</div>;
+//   }
   return (
     <CandidateProfileContext.Provider
       value={{ candidateProfile, setCandidateProfile }}

@@ -14,13 +14,13 @@ import { PostedJobDetail } from "./components/employer/postedJobDetail/postedJob
 import ViewApplicationsPage from "./components/applications/viewApplicationsPage";
 import FullApplicationDetailsPage from "./components/applications/fullApplicationDetailsPage";
 import { AccountSettings } from "./components/employer/accountSettings/accountSettings";
-import { CandidateAccountSettings } from "./components/employer/accountSettings/candidateAccountSettings";
 import { YourApplications } from "./components/candidate/yourApplications";
 import { ManageApplications } from "./components/applications/manageApplications";
+import { CandidateAccountWrapper } from "./components/employer/accountSettings/candidateAccountWrapper";
 function App() {
   const location = useLocation();
   const isEmployerRoute = location.pathname.includes("/employer");
-
+  
   return (
     <div className="App">
       {!isEmployerRoute ? <Navbar /> : <Header />}
@@ -62,7 +62,7 @@ function App() {
         ></Route>
         <Route
           path="/candidate/account-settings"
-          element={<CandidateAccountSettings />}
+          element={<CandidateAccountWrapper />}
         />
         <Route
           path="/candidate/view-applications"

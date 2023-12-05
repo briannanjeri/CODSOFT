@@ -1,18 +1,18 @@
 // EmployerProfileContext.js
 import React, { createContext, useContext, useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const EmployerProfileContext = createContext();
 const apiUrl = process.env.REACT_APP_API_URL;
 
 export const EmployerProfileProvider = ({ children }) => {
   const [employerProfile, setEmployerProfile] = useState(null);
   const [loading, setLoading] = useState(true);
-
+const navigate=useNavigate()
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const token = localStorage.getItem("employerToken");
-        if (!token) {
+        const employerToken = localStorage.getItem("employerToken");
+        if (!employerToken) {
           console.error("No employer token found in localStorage");
           return;
         }
@@ -20,7 +20,7 @@ export const EmployerProfileProvider = ({ children }) => {
         const response = await fetch(`${apiUrl}/employer/profile`, {
           method: "GET",
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${employerToken}`,
             "Content-Type": "application/json",
           },
         });
@@ -34,21 +34,22 @@ export const EmployerProfileProvider = ({ children }) => {
         setEmployerProfile(data);
       } catch (error) {
         console.error("Error fetching employer profile data:", error);
-      }finally{
-        setLoading(false)
       }
+      // finally{
+      //   setLoading(false)
+      // }
     };
 
     fetchProfileData();
   }, []);
 
-  if (loading) {
-    return <div >Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div >Loading...</div>;
+  // }
 
-  if (!employerProfile) {
-    return <div >Error: Employer profile not found</div>;
-  }
+  // if (!employerProfile) {
+  //   return <div >Error: Employer profile not found</div>;
+  // }
   return (
     <EmployerProfileContext.Provider
       value={{ employerProfile, setEmployerProfile }}
