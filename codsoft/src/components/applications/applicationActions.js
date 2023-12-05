@@ -26,7 +26,7 @@ export const ApplicationActions = ({
     <div>
       <label htmlFor="status">Application Status:</label>
       <select id="status" value={newStatus} onChange={handleStatusChange}>
-        <option value="pending">Pending</option>
+        <option value="">select Action</option>
         <option value="reviewed">Reviewed</option>
         <option value="shortlisted">Shortlisted</option>
         <option value="rejected">Rejected</option>

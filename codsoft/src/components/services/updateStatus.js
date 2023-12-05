@@ -8,9 +8,9 @@ export const updateApplicationStatus = async (
   const apiUrl = process.env.REACT_APP_API_URL;
 
   try {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("employerToken");
     const response = await fetch(
-      `${apiUrl}/applications/${applicationId}/status`,
+      ` http://localhost:3001/applications/${applicationId}/status`,
       {
         method: "PUT",
         headers: {
